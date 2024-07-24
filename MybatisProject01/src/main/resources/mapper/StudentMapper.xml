@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gmgx.dao.IStudentDao">
+    <select id="queryAllStudent" resultType="com.gmgx.entity.Student" >
+        select * from t_student
+    </select>
+
+    <select id="queryStudentBySno" resultType="com.gmgx.entity.Student" >
+        select * from t_student where sno = #{sno}
+    </select>
+    
+    <update id="updateStudentAge">
+        update t_student set age = #{age} where sno = #{sno}
+    </update>
+
+    <!--  按名字模糊查询学生  -->
+    <select id="queryStudentByLikeSname" resultType="com.gmgx.entity.Student">
+        select * from t_student where sname like concat('%',#{sname},'%')
+    </select>
+    <!--  分页查询学生  -->
+    <select id="queryStudentByPage" resultType="com.gmgx.entity.Student">
+        select * from t_student limit #{startNum},#{pageSize}
+    </select>
+    <!--  查询学生 排序  -->
+    <select id="queryStudentByOrder" resultType="com.gmgx.entity.Student">
+        select * from t_student order by #{colName},#{orderType}
+    </select>
+
+</mapper>
