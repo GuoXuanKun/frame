@@ -28,4 +28,7 @@
         select * from t_student order by #{colName},#{orderType}
     </select>
 
+    <select id="queryAllStudentByAge" resultType="com.gmgx.entity.Student">
+        select * from t_student where age &lt;=#{hightAge} and age &gt;=#{lowAge}
+    </select>
 </mapper>
