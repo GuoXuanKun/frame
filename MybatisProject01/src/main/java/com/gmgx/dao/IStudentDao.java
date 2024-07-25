@@ -39,4 +39,6 @@ public interface IStudentDao {
      * @return
      */
     public List<Student> queryStudentByOrder(@Param("colName") String colName,@Param("orderType") String orderType);
+
+    public List<Student> queryAllStudentByAge(@Param("hightAge")Integer hightAge,@Param("lowAge")Integer lowAge);
 }
