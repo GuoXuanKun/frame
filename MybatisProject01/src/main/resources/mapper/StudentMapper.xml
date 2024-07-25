@@ -3,6 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gmgx.dao.IStudentDao">
+
+    <resultMap id="StudentMap" type="com.gmgx.entity.Student">
+        <id property="sno" column="sno" jdbcType="INTEGER" javaType="integer"></id>
+        <result property="sname" column="sname" jdbcType="VARCHAR" javaType="String"></result>
+        <result property="password" column="password" jdbcType="VARCHAR" javaType="string"></result>
+        <result property="sex" column="sex" jdbcType="VARCHAR" javaType="String"></result>
+        <result property="age" column="age" jdbcType="INTEGER" javaType="integer"></result>
+        <result property="birthday" column="birthday" jdbcType="DATE" javaType="date"></result>
+    </resultMap>
+
     <select id="queryAllStudent" resultType="com.gmgx.entity.Student" >
         select * from t_student
     </select>
