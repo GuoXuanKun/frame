@@ -18,5 +18,10 @@
     <select id="queryAllBrand" resultMap="BrandMap">
         select * from t_brand
     </select>
+    
+    <!--  根据 id 查询品牌描述  -->
+    <select id="queryDescription" resultType="String">
+        select description from t_brand where id = #{id}
+    </select>
 
 </mapper>
