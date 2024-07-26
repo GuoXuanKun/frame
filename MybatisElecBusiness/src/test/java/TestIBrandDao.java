@@ -74,7 +74,13 @@ public class TestIBrandDao {
     }
 
     @Test
-    public void testqueryBrandByChoose3(){
-        System.out.println(brandDao.queryBrandByChoose3("当前状态", "1"));
+    public void testqueryBrandByChoose(){
+        System.out.println(brandDao.queryBrandByChoose("当前状态", "1"));
+    }
+
+    @Test
+    public void testUpdateBrandByFieldChange(){
+        brandDao.updateBrandByFieldChange(new Brand(5,"三星","这里是企业描述",1,"111111","1"));
+        session.commit();
     }
 }
