@@ -39,4 +39,9 @@ public class TestIBrandDao {
     public void testQueryAllBrand(){
         System.out.println(brandDao.queryAllBrand());
     }
+
+    @Test
+    public void testQueryDescription(){
+        System.out.println(brandDao.queryDescription(1));
+    }
 }
