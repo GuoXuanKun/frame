@@ -15,9 +15,9 @@ public class Brand {
     private String companyName;
     private int ordered;
     private String description;
-    private int status;
+    private String status;
 
-    public Brand(String brandName, String companyName, int ordered, String description, int status) {
+    public Brand(String brandName, String companyName, int ordered, String description, String status) {
         this.brandName = brandName;
         this.companyName = companyName;
         this.ordered = ordered;

@@ -54,7 +54,7 @@ public class TestIBrandDao {
     @Test
     public void testInsertBrand(){
 
-        brandDao.insertBrand(new Brand("oppo","这里是企业描述",1,"111111",1));
+        brandDao.insertBrand(new Brand("oppo","这里是企业描述",1,"111111","1"));
 
         session.commit();
     }
@@ -68,8 +68,13 @@ public class TestIBrandDao {
     @Test
     public void testUpdateBrand(){
 
-        brandDao.updateBrand(new Brand(5,"三星","这里是企业描述",1,"111111",1));
+        brandDao.updateBrand(new Brand(5,"三星","这里是企业描述",1,"111111","1"));
 
         session.commit();
+    }
+
+    @Test
+    public void testqueryBrandByChoose3(){
+
     }
 }
