@@ -58,4 +58,10 @@ public class TestIBrandDao {
 
         session.commit();
     }
+
+    @Test
+    public void testDeleteBrand(){
+        brandDao.deleteBrand(4);
+        session.commit();
+    }
 }
