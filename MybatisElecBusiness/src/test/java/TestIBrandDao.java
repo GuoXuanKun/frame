@@ -44,4 +44,9 @@ public class TestIBrandDao {
     public void testQueryDescription(){
         System.out.println(brandDao.queryDescription(1));
     }
+
+    @Test
+    public void testQueruBrandByMultipleConditions(){
+        System.out.println(brandDao.queruBrandByMultipleConditions(1, "米", "里"));
+    }
 }
