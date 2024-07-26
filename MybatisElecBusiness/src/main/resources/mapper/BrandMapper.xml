@@ -3,5 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gmgx.dao.IBrandDao">
+    <select id="queryAllBrand" resultType="com.gmgx.entity.Brand">
+        select * from t_brand
+    </select>
 
 </mapper>
