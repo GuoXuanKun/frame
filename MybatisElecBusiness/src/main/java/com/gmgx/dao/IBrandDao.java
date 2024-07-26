@@ -49,4 +49,12 @@ public interface IBrandDao {
      * @return
      */
     public Boolean updateBrand(Brand brand);
+
+    /**
+     * 根据选择 查询品牌
+     * @param choose
+     * @param field
+     * @return
+     */
+    public List<Brand> queryBrandByChoose3(@Param("choose") String choose ,@Param("field") String field);
 }
