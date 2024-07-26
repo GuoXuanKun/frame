@@ -1,5 +1,9 @@
 package com.gmgx.dao;
 
-public interface IBrandDao {
+import com.gmgx.entity.Brand;
 
+import java.util.List;
+
+public interface IBrandDao {
+    public List<Brand> queryAllBrand();
 }
