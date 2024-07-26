@@ -45,7 +45,7 @@
     </update>
 
 <!--    根据选择 查询品牌 -->
-    <select id="queryBrandByChoose3" resultMap="BrandMap">
+    <select id="queryBrandByChoose" resultMap="BrandMap">
         select * from t_brand
         where
         <choose>
@@ -54,4 +54,15 @@
             <when test="choose=='品牌名称'">status = #{field}</when>
         </choose>
     </select>
+
+<!--    根据 品牌id 更新 有更改字段的品牌 -->
+    <update id="updateBrandByFieldChange">
+        update t_brand set
+                           <if test="brandName != null">brand_name = #{brandName},</if>
+                           <if test="companyName != null">company_name = #{companyName},</if>
+                           <if test="ordered != null">ordered = #{ordered},</if>
+                           <if test="description != null">description = #{description},</if>
+                           <if test="status != null">status = #{status}</if>
+        where id = #{id}
+    </update>
 </mapper>
