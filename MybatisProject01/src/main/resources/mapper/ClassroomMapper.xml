@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gmgx.dao.IClassroomDao">
+
+    <select id="queryAllClassroomAndStudent" resultType="com.gmgx.dto.ClassroomDto">
+        select c.cno,
+               c.cname,
+               c.addr,
+               s.sno,
+               s.sname,
+               s.password,
+               s.age,
+               s.sex,
+               s.birthday
+        from
+            t_classroom c left join t_student s ON s.cno = c.cno
+    </select>
+
+    <resultMap id="classroomAndStudentMap" type="com.gmgx.entity.Classroom">
+        <id property="cno" column="cno"></id>
+        <result property="cname" column="cname" ></result>
+        <result property="addr" column="addr" ></result>
+        <!-- 配置 集合  关系  一对多 关联关系    切记切记 ：这里使用的是 ofType  不是 JavaType  ，我们要规定的是  集合中的 元素类型   -->
+        <collection property="myStuList" ofType="com.gmgx.entity.Student">
+            <id property="sno" column="sno"  ></id>
+            <result property="sname" column="sname"></result>
+            <result property="password" column="password" ></result>
+            <result property="sex" column="sex" ></result>
+            <result property="age" column="age" ></result>
+            <result property="birthday" column="birthday" ></result>
+        </collection>
+    </resultMap>
+
+    <!-- 注意： 此处 使用的的是  结果映射  resultMap   -->
+    <select id="queryAllClassroomAndStudent2"  resultMap="classroomAndStudentMap">
+
+        SELECT
+            c.cno,
+            c.cname,
+            c.addr,
+            s.sno,
+            s.sname,
+            s.password,
+            s.age,
+            s.sex,
+            s.birthday
+
+        FROM
+            t_classroom
+                c
+                LEFT JOIN  t_student s ON s.cno = c.cno
+
+    </select>
+
+
+
+</mapper>
