@@ -1,0 +1,33 @@
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="db.properties"></properties>
+    <!-- 和spring整合后 environments配置将废除-->
+    <environments default="development">
+        <environment id="development">
+            <!-- type的值可以选择  jdbc 使用jdbc事务管理,相当于手动管理事务
+                                   Managed 不使用任何事务管理，交给其他的框架比如spring框架进行事务管理
+            -->
+            <transactionManager type="JDBC" />  <!-- 使用jdbc的事务   提交  和  回滚  （比如，业务逻辑  同时插入数据 ，如果第二个插入失败，需要回滚第第二个插入动作      ）     -->
+            <!-- type的值可以选择   pooled  采用连接池的方式配置数据源  conn  预先 开几个连接在这里等待，请求 需要的时候，分配连接给它， 不需要就回收，等待其他人的连接
+                                   unpooled 不采用连接池方式配置
+                                   JNDI    采用JNDI方式实现数据连接池配置
+             -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver_name}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${userpwd}" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 加载mapper.xml -->
+    <mappers>
+        <mapper resource="mapper/BrandMapper.xml" />
+        <!-- 根据你的代码编写，加载对应的mapper.xml -->
+    </mappers>
+
+</configuration>
