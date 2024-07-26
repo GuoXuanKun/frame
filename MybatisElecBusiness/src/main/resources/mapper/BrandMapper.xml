@@ -38,4 +38,9 @@
     <delete id="deleteBrand">
         delete from t_brand where id = #{id}
     </delete>
+
+<!--    根据 品牌id 更新品牌 -->
+    <update id="updateBrand">
+        update t_brand set brand_name = #{brandName},company_name = #{companyName},ordered = #{ordered},description = #{description},status = #{status} where id = #{id}
+    </update>
 </mapper>

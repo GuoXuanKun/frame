@@ -42,4 +42,11 @@ public interface IBrandDao {
      * @return
      */
     public Boolean deleteBrand(int id);
+
+    /**
+     * 根据 品牌id 更新品牌
+     * @param brand
+     * @return
+     */
+    public Boolean updateBrand(Brand brand);
 }
