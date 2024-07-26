@@ -1,4 +1,5 @@
 import com.gmgx.dao.IBrandDao;
+import com.gmgx.entity.Brand;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -48,5 +49,13 @@ public class TestIBrandDao {
     @Test
     public void testQueruBrandByMultipleConditions(){
         System.out.println(brandDao.queruBrandByMultipleConditions(1, "米", "里"));
+    }
+
+    @Test
+    public void testInsertBrand(){
+
+        brandDao.insertBrand(new Brand("oppo","这里是企业描述",1,"111111",1));
+
+        session.commit();
     }
 }
