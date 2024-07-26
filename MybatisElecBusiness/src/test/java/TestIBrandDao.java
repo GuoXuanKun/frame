@@ -75,6 +75,6 @@ public class TestIBrandDao {
 
     @Test
     public void testqueryBrandByChoose3(){
-
+        System.out.println(brandDao.queryBrandByChoose3("当前状态", "1"));
     }
 }
