@@ -34,4 +34,8 @@
         insert into t_brand(brand_name,company_name,ordered,description,status) values (#{brandName},#{companyName},#{ordered},#{description},#{status})
     </insert>
 
+<!--    根据 品牌id 删除品牌 -->
+    <delete id="deleteBrand">
+        delete from t_brand where id = #{id}
+    </delete>
 </mapper>
