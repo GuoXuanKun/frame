@@ -3,7 +3,19 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gmgx.dao.IBrandDao">
-    <select id="queryAllBrand" resultType="com.gmgx.entity.Brand">
+
+    <!--  Brand 的 Map 映射  -->
+    <resultMap id="BrandMap" type="com.gmgx.entity.Brand">
+        <id property="id" column="id"></id>
+        <result property="brandName" column="brand_name"></result>
+        <result property="companyName" column="company_name"></result>
+        <result property="ordered" column="ordered"></result>
+        <result property="description" column="description"></result>
+        <result property="status" column="status"></result>
+    </resultMap>
+
+    <!--  查询所有品牌  -->
+    <select id="queryAllBrand" resultMap="BrandMap">
         select * from t_brand
     </select>
 
