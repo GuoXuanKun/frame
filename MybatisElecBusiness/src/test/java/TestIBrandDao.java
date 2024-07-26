@@ -64,4 +64,12 @@ public class TestIBrandDao {
         brandDao.deleteBrand(4);
         session.commit();
     }
+
+    @Test
+    public void testUpdateBrand(){
+
+        brandDao.updateBrand(new Brand(5,"三星","这里是企业描述",1,"111111",1));
+
+        session.commit();
+    }
 }
