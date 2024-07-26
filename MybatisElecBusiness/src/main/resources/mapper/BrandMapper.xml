@@ -29,5 +29,9 @@
         select * from t_brand where status = #{status} and brand_name like concat('%',#{brandName},'%') and company_name like concat('%',#{companyName},'%')
     </select>
 
+    <!--  插入品牌  -->
+    <insert id="insertBrand">
+        insert into t_brand(brand_name,company_name,ordered,description,status) values (#{brandName},#{companyName},#{ordered},#{description},#{status})
+    </insert>
 
 </mapper>

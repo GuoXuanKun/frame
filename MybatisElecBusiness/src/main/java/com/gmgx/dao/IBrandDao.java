@@ -28,4 +28,11 @@ public interface IBrandDao {
      * @return
      */
     public Brand queruBrandByMultipleConditions(@Param("status") int status , @Param("brandName") String brandName,@Param("companyName") String companyName);
+
+    /**
+     * 插入品牌
+     * @param brand
+     * @return
+     */
+    public Boolean insertBrand(Brand brand);
 }
