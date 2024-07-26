@@ -21,6 +21,13 @@ public interface IBrandDao {
     public String queryDescription(int id);
 
     /**
+     * 根据 品牌 id 查询品牌描述 用 ${}
+     * @param id
+     * @return
+     */
+    public String queryDescription02(int id);
+
+    /**
      * 多条件查询品牌名称
      * @param status
      * @param brandName
@@ -64,4 +71,11 @@ public interface IBrandDao {
      * @return
      */
     public Boolean updateBrandByFieldChange(Brand brand);
+
+    /**
+     * 根据 品牌id 集合 删除 品牌
+     * @param idList
+     * @return
+     */
+    public Boolean DeleteBrandBYIdList(@Param("idList") List idList);
 }
