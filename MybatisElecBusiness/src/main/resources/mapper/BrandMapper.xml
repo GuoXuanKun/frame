@@ -24,4 +24,10 @@
         select description from t_brand where id = #{id}
     </select>
 
+    <!--  多条件查询品牌名称  -->
+    <select id="queruBrandByMultipleConditions" resultMap="BrandMap">
+        select * from t_brand where status = #{status} and brand_name like concat('%',#{brandName},'%') and company_name like concat('%',#{companyName},'%')
+    </select>
+
+
 </mapper>
