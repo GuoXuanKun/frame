@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestIBrandDao {
     SqlSession session   =null;
@@ -82,5 +84,19 @@ public class TestIBrandDao {
     public void testUpdateBrandByFieldChange(){
         brandDao.updateBrandByFieldChange(new Brand(5,"三星","这里是企业描述",1,"111111","1"));
         session.commit();
+    }
+
+    @Test
+    public void testDeleteBrandBYIdList(){
+        List<Integer> idlist = new ArrayList<>();
+        idlist.add(6);
+        idlist.add(7);
+        brandDao.DeleteBrandBYIdList(idlist);
+        session.commit();
+    }
+
+    @Test
+    public void testtestQueryDescription02(){
+        System.out.println(brandDao.queryDescription02(5));
     }
 }
