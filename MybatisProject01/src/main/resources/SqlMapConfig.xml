@@ -4,6 +4,18 @@
 <configuration>
 
     <properties resource="db.properties"></properties>
+
+
+
+    <typeAliases>
+        <!--        <typeAlias type="com.gmgx.entity.Student" alias="student"></typeAlias>-->
+        <!--        <typeAlias type="com.gmgx.entity.User" alias="user"></typeAlias>-->
+
+        <package name="com.gmgx.entity"/><!-- 对应的别名  同 类名 一样，或者 类名首字母小写（推荐）  -->
+        <package name="com.gmgx.dto"/>
+    </typeAliases>
+
+
     <!-- 和spring整合后 environments配置将废除-->
     <environments default="development">
         <environment id="development">
