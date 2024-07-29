@@ -12,6 +12,7 @@
         <result property="userPwd" column="user_pwd"></result>
         <result property="userAddr" column="user_addr"></result>
     </resultMap>
+
     <resultMap id="userAndOrderMap" type="com.gmgx.entity.User">
         <!-- 主键 使用 id 标签 -->
         <id property="userId" column="user_id"></id>
