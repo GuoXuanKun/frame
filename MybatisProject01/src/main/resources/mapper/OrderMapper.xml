@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  命名空间  指向的 对应 接口 -->
+<mapper namespace="com.gmgx.dao.IOrderDao">
+
+
+    <resultMap id="orderMap" type="order">
+        <id property="orderId" column="order_id" ></id>
+        <result   property="orderPrice" column="order_price"></result>
+        <result  property="orderDate"  column="order_date" ></result>
+        <result   property="orderAddr" column="order_addr"></result>
+
+    </resultMap>
+
+
+    <resultMap id="orderAndUserMap" type="order">
+        <id  property="orderId" column="order_id"></id>
+        <result   property="orderPrice" column="order_price"></result>
+        <result  property="orderDate"  column="order_date" ></result>
+        <result   property="orderAddr" column="order_addr"></result>
+        <association property="orderUser" javaType="user">
+            <id property="userId" column="user_id"></id>
+            <result property="userName" column="user_name"></result>
+            <result property="userPwd" column="user_pwd"></result>
+            <result property="userAddr" column="user_addr"></result>
+
+        </association>
+
+    </resultMap>
+
+
+
+    <select id="queryAllOrderAndUser" resultMap="orderAndUserMap">
+
+        select  * from t_user u left join t_order o on u.user_id = o.user_id
+
+    </select>
+
+    <select id="queryOrderByUserId" resultMap="orderMap">
+
+        select  * from t_order where user_id =#{userId}
+
+    </select>
+
+
+
+
+    <resultMap id="orderAndUserMap2" type="order">
+        <id  property="orderId" column="order_id"></id>
+        <result   property="orderPrice" column="order_price"></result>
+        <result  property="orderDate"  column="order_date" ></result>
+        <result   property="orderAddr" column="order_addr"></result>
+        <association property="orderUser" javaType="user" column="user_id" select="com.gmgx.dao.IUserDao.queryAllUserByUserId"></association>
+
+    </resultMap>
+
+    <!-- 特别特别要注意： user_Id 作为 关联条件，一定要写上，否则没有 通过    association  select 去调用 方法（因为需要参数 user_id ,如果参数为空，说明没有关联）  -->
+    <select id="queryAllOrderAndUser2" resultMap="orderAndUserMap2">
+
+        select  order_id,order_price,order_date,order_addr,user_id from  t_order
+
+    </select>
+
+
+</mapper>

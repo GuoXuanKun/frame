@@ -2,7 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  命名空间  指向的 对应 接口 -->
 <mapper namespace="com.gmgx.dao.IUserDao">
+
     <resultMap id="userMap" type="com.gmgx.entity.User">
         <!-- 主键 使用 id 标签 -->
         <id property="userId" column="user_id"></id>
@@ -10,12 +12,70 @@
         <result property="userPwd" column="user_pwd"></result>
         <result property="userAddr" column="user_addr"></result>
     </resultMap>
+    <resultMap id="userAndOrderMap" type="com.gmgx.entity.User">
+        <!-- 主键 使用 id 标签 -->
+        <id property="userId" column="user_id"></id>
+        <result property="userName" column="user_name"></result>
+        <result property="userPwd" column="user_pwd"></result>
+        <result property="userAddr" column="user_addr"></result>
+        <collection property="orderList" ofType="order">
+            <id column="order_id" property="orderId"></id>
+            <result   property="orderPrice" column="order_price"></result>
+            <result  property="orderDate"  column="order_date" ></result>
+            <result   property="orderAddr" column="order_addr"></result>
+        </collection>
+    </resultMap>
 
+
+    <!--id 对应的是  接口的 方法名   resultType  类型 -》实体类  resultMap 映射 -》配置映射标签      -->
+    <!--   <select id="queryAllUser" resultType="com.gmgx.entity.User">
+        /* 当 我们 的  数据库表中 的字段 和 实体类 的属性名不一致 的 解决方案之一   给 列 区别名 */
+        select user_id userId,user_name userName  from t_user
+
+       </select>-->
+    <select id="queryAllUser" resultMap="userMap">
+
+        select  user_id,user_name,user_pwd,user_addr from t_user
+
+    </select>
 
     <select id="queryUserByLikeName" resultMap="userMap">
 
         select  user_id,user_name,user_addr from t_user where user_name  like concat('%',#{userName},'%')
 
     </select>
+
+
+    <select id="queryAllUserAndOrder" resultMap="userAndOrderMap">
+
+        select  * from t_user u left join t_order o on u.user_id = o.user_id
+
+    </select>
+
+
+
+
+    <resultMap id="userAndOrderMap2" type="com.gmgx.entity.User">
+        <!-- 主键 使用 id 标签 -->
+        <id property="userId" column="user_id"></id>
+        <result property="userName" column="user_name"></result>
+        <result property="userPwd" column="user_pwd"></result>
+        <result property="userAddr" column="user_addr"></result>
+        <collection property="orderList" ofType="order"  column="user_id"  select="com.gmgx.dao.IOrderDao.queryOrderByUserId"></collection>
+    </resultMap>
+    <!-- 先查单表的  -->
+    <select id="queryAllUserAndOrder2" resultMap="userAndOrderMap2">
+
+        select  user_id,user_name,user_pwd,user_addr from t_user u
+
+    </select>
+
+    <select id="queryAllUserByUserId" resultMap="userMap">
+
+        select  user_id,user_name,user_pwd,user_addr from t_user  where  user_id  =#{userId}
+
+    </select>
+
+
 
 </mapper>
