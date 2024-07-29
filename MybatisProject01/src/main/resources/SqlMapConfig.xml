@@ -6,6 +6,24 @@
     <properties resource="db.properties"></properties>
 
 
+    <!-- 配置 设置   -->
+    <!-- 设置懒加载 -->
+    <settings>
+        <!--  默认是 非懒加载的 （不管三七二十一 ，全部都给你查出来（用户和订单） 即使你暂时没使用订单信息 ） -->
+        <!-- 未开启懒加载  -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 在 mybatis版本中  3.4.1之前  默认（true）积极的懒加载  之后，默认为false  按需加载  -->
+        <!-- 激进的 侵略性的  懒加载  （ 比懒加载 稍微 积极的  ）  默认的： false  按需加载-->
+        <!--        <setting name="aggressiveLazyLoading" value="false"/>-->
+        <!--        <setting name="aggressiveLazyLoading" value="true"/>-->
+        <!-- aggressiveLazyLoading   -->
+
+
+    </settings>
+
+
+
+
 
     <typeAliases>
         <!--        <typeAlias type="com.gmgx.entity.Student" alias="student"></typeAlias>-->
