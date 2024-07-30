@@ -19,4 +19,11 @@ public class User {
     private String userAddr;
     private List<Order> orderList;
 
+    public User(Integer userId, String userName, String userPwd) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userPwd = userPwd;
+    }
+
+
 }
