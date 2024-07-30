@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  命名空间  指向的 对应 接口 -->
+<mapper namespace="com.gmgx.dao.IBlogDao">
+
+    <select id="queryAllBlog" resultType="blog">
+
+    select blog_id blogId ,blog_title blogTitle,blog_content blogContent ,user_id userId from t_blog
+
+    </select>
+
+</mapper>
