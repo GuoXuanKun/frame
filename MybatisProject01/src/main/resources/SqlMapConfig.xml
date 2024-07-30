@@ -62,6 +62,7 @@
         <mapper resource="mapper/UserMapper.xml" />
         <mapper resource="mapper/ClassroomMapper.xml" />
         <mapper resource="mapper/OrderMapper.xml" />
+        <mapper resource="mapper/BlogMapper.xml" />
         <!-- 根据你的代码编写，加载对应的mapper.xml -->
     </mappers>
 
