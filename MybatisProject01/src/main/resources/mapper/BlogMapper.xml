@@ -5,10 +5,105 @@
 <!--  命名空间  指向的 对应 接口 -->
 <mapper namespace="com.gmgx.dao.IBlogDao">
 
+
     <select id="queryAllBlog" resultType="blog">
 
-    select blog_id blogId ,blog_title blogTitle,blog_content blogContent ,user_id userId from t_blog
+        select blog_id blogId ,blog_title blogTitle,blog_content blogContent ,user_id userId from t_blog
 
     </select>
+
+    <select id="queryAllBlog2" resultType="blog">
+
+        select blog_id blogId ,blog_title blogTitle,blog_content blogContent ,user_id userId from t_blog
+
+    </select>
+
+    <select id="queryBlogById" resultType="blog">
+
+        select blog_id blogId ,blog_title blogTitle,blog_content blogContent ,user_id userId from t_blog where blog_id =#{blogId}
+
+    </select>
+
+    <select id="queryBlogById2" resultType="blog">
+
+        select blog_id blogId ,blog_title blogTitle,blog_content blogContent ,user_id userId from t_blog where blog_id =1
+
+    </select>
+
+
+    <select id="queryBlogById3" resultType="blog">
+
+        select blog_id blogId ,blog_title blogTitle,blog_content blogContent ,user_id userId from t_blog
+
+        where
+
+        <if test="id1==1">
+            blog_id =#{id1}
+        </if>
+
+        <if test="id1==2">
+            blog_id =#{id2}
+        </if>
+
+
+        or
+
+        <if test="id1==2">
+            blog_id =#{id1}
+        </if>
+
+        <if test="id1==1">
+            blog_id =#{id2}
+        </if>
+
+    </select>
+
+
+    <select id="queryBlogById4" resultType="blog">
+
+        select blog_id blogId ,blog_title blogTitle,blog_content blogContent ,user_id userId from t_blog
+
+        where
+            blog_id =1
+           or
+            blog_id =2
+
+    </select>
+
+
+    <update id="modifyBlog">
+
+        update t_blog
+        <set>
+            <if test="blogTitle!=null">
+                blog_title=#{blogTitle},
+            </if>
+            <if test="blogContent!=null">
+                blog_content=#{blogContent},
+            </if>
+            <if test="userId!=null">
+                user_id  = #{userId}
+            </if>
+        </set>
+        where
+        blog_id =#{blogId}
+
+    </update>
+    <update id="modifyUser">
+
+        update t_user
+        <set>
+            <if test="userName!=null">
+                user_name=#{userName},
+            </if>
+            <if test="userPwd!=null">
+                user_pwd=#{userPwd}
+            </if>
+        </set>
+        where
+        user_id =#{userId}
+
+    </update>
+
 
 </mapper>
