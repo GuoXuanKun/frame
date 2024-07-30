@@ -13,8 +13,11 @@ import java.io.InputStream;
 
 public class TestBlogDao {
 
+
     SqlSession session1   =null;
     SqlSession session2   =null;
+
+    SqlSession session3   =null;
     @Before
     public  void beforeMethod(){
         // 1 找到 sqlmapConfig.xml
@@ -29,13 +32,15 @@ public class TestBlogDao {
         session1   =  sessionFactory.openSession();
 
         session2   =  sessionFactory.openSession();
+
+        session3   =  sessionFactory.openSession();
     }
     @After
     public void afterMethod(){
 
         // 6 关闭资源
-        session1.close();
-        session2.close();
+//        session1.close();
+//        session2.close();
     }
 
 
@@ -275,5 +280,111 @@ public class TestBlogDao {
 
     }
 
+
+    /**
+     *
+     * 1当我们的blogMapper 配置及 缓存 标签  <cache></cache> 表示 当前的mapper开启了二级缓存
+     * 2 对应的存放数据的对象，必须序列化   implements Serializable
+     * 3 一个session执行查询后，必须 关闭后，缓存数据才会保存到二级缓存中
+     * 4 如果没有关闭，怎么查询都会不会通过二级缓存（命中率为0），所以一定要关闭才能保存到二级缓存
+     */
+    @Test
+    public void testQueryAllBlog10(){
+
+        IBlogDao blogDao  =   session1.getMapper(IBlogDao.class);
+        System.out.println(blogDao.queryAllBlog());
+
+
+        System.out.println("==========");
+        /*  当session对象 关闭了，会将 一级缓存 中的数据 搬运到二级缓存中  */
+        // 先去二级缓存里看看有没有，没有的话，在去一级缓存 中取
+        // 为什么是 命中率 为0  Cache Hit Ratio [com.gmgx.dao.IBlogDao]: 0.0 ，因为 session没有关闭，就没有将数据保存到二级缓存
+
+        System.out.println(blogDao.queryAllBlog());
+
+        session1.close();
+        // 关闭之后，这个session产生的dao对象就不能用了   Executor was closed.
+//        System.out.println(blogDao.queryAllBlog());
+
+
+
+    }
+
+    /**
+     * 如何实现 从二级缓存中获取数据
+     */
+    @Test
+    public void testQueryAllBlog11(){
+
+
+        IBlogDao blogDao1  =   session1.getMapper(IBlogDao.class);
+        IBlogDao blogDao2  =   session2.getMapper(IBlogDao.class);
+        System.out.println(blogDao1.queryAllBlog());
+        session1.close();
+
+        System.out.println("==========");
+
+        System.out.println(blogDao2.queryAllBlog());
+        System.out.println(blogDao2.queryAllBlog());
+        System.out.println(blogDao2.queryAllBlog());
+        session2.close();
+
+    }
+
+
+    /** 测试：开启了二级缓存，但使用完s1 没有关闭，中间通过s2 实现增删改， 又再次通过s1 查询，是否拿到 新数据 或者 脏数据？ 会
+     *  还是脏数据： 我们虽然开启了二级缓存，但是 前面没有关闭，所以没有作用到 二级缓存中 ，但是 s1的一级缓存 还在，所以又把 旧数据拿出来了
+     */
+    @Test
+    public void testQueryAllBlog12(){
+
+
+        IBlogDao blogDao1  =   session1.getMapper(IBlogDao.class);
+        IBlogDao blogDao2  =   session2.getMapper(IBlogDao.class);
+
+        System.out.println("=====s1 第一次查询 =====");
+        System.out.println(blogDao1.queryBlogById(1));
+        //session1.close();
+
+        System.out.println("=====s2 做修改 =====");
+        System.out.println(blogDao2.modifyBlog(new Blog(1, "通过s2修改数据", "大师兄说得对对对对", 1)));
+
+        /* 还是脏数据： 我们虽然开启了二级缓存，但是 前面没有关闭，所以没有作用到 二级缓存中 ，但是 s1的一级缓存 还在，所以又把 旧数据拿出来了 */
+        System.out.println("=====s1 第二次查询 =====");
+        System.out.println(blogDao1.queryBlogById(1));
+
+
+
+
+    }
+
+
+    @Test
+    public void testQueryAllBlog13(){
+
+        //  s1 查询并关闭（数据保存二级缓存）  s2 增删改（清空二级缓存） s3 查询（二级缓存中找，找不到，就去找数据库）
+        //  玩一下：极端测试方式：
+        //  s1 查询并关闭（数据保存二级缓存） s2 查询（不关闭）  s3 增删改（清空二级缓存） s2 再查询（请问这时候会不会得到脏数据？）
+        IBlogDao blogDao1  =   session1.getMapper(IBlogDao.class);
+        IBlogDao blogDao2  =   session2.getMapper(IBlogDao.class);
+        IBlogDao blogDao3  =   session3.getMapper(IBlogDao.class);
+
+        System.out.println("=====s1 第一次查询 =====");
+        System.out.println(blogDao1.queryBlogById(1));
+        session1.close();// 将数据保存到二级缓存
+
+        System.out.println("=====s2 做修改 =====");
+        System.out.println(blogDao2.modifyBlog(new Blog(1, "通过s2修改数据", "大师兄说得对对对对", 1)));
+        session2.commit();
+        session2.close();// 是否 会 影响到 二级缓存呢？也就是 二级缓存的数据会被清空
+
+        /* 还是脏数据： 我们虽然开启了二级缓存，但是 前面没有关闭，所以没有作用到 二级缓存中 ，但是 s1的一级缓存 还在，所以又把 旧数据拿出来了 */
+        System.out.println("=====s3 查询 =====");
+        System.out.println(blogDao3.queryBlogById(1));
+        session3.close();
+
+
+
+    }
 
 }
