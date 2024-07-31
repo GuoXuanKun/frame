@@ -5,6 +5,10 @@
 <!--  命名空间  指向的 对应 接口 -->
 <mapper namespace="com.gmgx.dao.IUserDao">
 
+    <!-- 当当前的 mapper(dao) 发生了 增删改 ，通过 跟他关联的 mapper（blogMapper）清除一个二级缓存  -->
+    <cache-ref namespace="com.gmgx.dao.IBlogDao"/>
+
+
     <resultMap id="userMap" type="com.gmgx.entity.User">
         <!-- 主键 使用 id 标签 -->
         <id property="userId" column="user_id"></id>
@@ -76,6 +80,12 @@
         select  user_id,user_name,user_pwd,user_addr from t_user  where  user_id  =#{userId}
 
     </select>
+
+    <update id="modifyUserName">
+        update t_user set user_name = #{newName} where user_id =#{userId}
+
+
+    </update>
 
 
 
