@@ -106,5 +106,27 @@
 
     </update>
 
+    <resultMap id="blogAndUserMap" type="blog">
+        <id property="blogId" column="blog_id"></id>
+        <result property="blogTitle" column="blog_title"></result>
+        <result property="blogContent" column="blog_content"></result>
+        <association property="author" javaType="user">
+
+            <id property="userId" column="user_id" ></id>
+            <result property="userName" column="user_name"></result>
+            <result property="userPwd" column="user_pwd"></result>
+            <result property="userAddr" column="user_addr"></result>
+        </association>
+    </resultMap>
+
+
+
+    <select id="queryBlogAndUserByBlogId" resultMap="blogAndUserMap">
+
+        select * from t_blog b left join t_user u  on b.user_id=u.user_id where blog_id =#{blogId}
+
+    </select>
+
+
 
 </mapper>
