@@ -1,6 +1,7 @@
 package com.gmgx.dao;
 
 import com.gmgx.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.nio.file.attribute.UserPrincipal;
 import java.util.List;
@@ -17,5 +18,8 @@ public interface IUserDao {
     public List<User> queryAllUserAndOrder2();
 
     public User queryAllUserByUserId(Integer userId);
+
+    public boolean modifyUserName(@Param("userId") Integer userId, @Param("newName") String newName);
+
 
 }
