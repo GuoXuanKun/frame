@@ -3,5 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gmgx.dao.ICommodityDao">
+<resultMap id="CommodityMap" type="commodity">
+    <id property="commodityId" column="commodity_id"></id>
+    <result property="commodityName" column="commodity_name"></result>
+    <result property="repertory" column="repertory"></result>
+    <result property="volume" column="volume"></result>
+    <result property="manager" column="manager"></result>
+</resultMap>
 
+    <select id="queryAllCommodityByCommodityName" resultMap="CommodityMap">
+        select * from e_commodity where commodity_name like concat('%',#{commodityName},'%')
+    </select>
 </mapper>
