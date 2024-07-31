@@ -27,6 +27,10 @@ public interface IBlogDao {
     public boolean modifyUser(User user);
 
 
+    public List<Blog> queryBlogAndUserByBlogId(Integer blogId);
+
+
+
 
 
 
