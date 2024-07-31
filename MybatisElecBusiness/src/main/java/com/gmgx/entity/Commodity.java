@@ -12,6 +12,7 @@ import lombok.ToString;
 public class Commodity {
     private int commodityId;
     private String commodityName;
+    private int univalence;
     private int repertory;
     private int volume;
     private String manager;
