@@ -15,4 +15,16 @@
     <select id="queryAllCommodityByCommodityName" resultMap="CommodityMap">
         select * from e_commodity where commodity_name like concat('%',#{commodityName},'%')
     </select>
+
+<!--    查询商品 选择 排序 -->
+    <select id="queryAllCommodityByChoose" resultMap="CommodityMap">
+        select * from e_commodity
+        order by
+            <choose>
+                <when test="choose=='销量'">
+                <if test="way=='降序'">volume desc</if>
+                <if test="way!='降序'">volume asc</if>
+        </when>
+            </choose>
+    </select>
 </mapper>
