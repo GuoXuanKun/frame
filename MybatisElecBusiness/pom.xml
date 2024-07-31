@@ -49,6 +49,15 @@
         </dependency>
 
 
+        <!--    解决 log4j 控制台信息乱码问题    -->
+        <dependency>
+            <groupId>org.jboss</groupId>
+            <artifactId>jboss-vfs</artifactId>
+            <version>3.2.15.Final</version>
+        </dependency>
+
+
+
 
     </dependencies>
 
