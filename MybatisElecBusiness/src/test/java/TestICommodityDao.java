@@ -43,4 +43,9 @@ public class TestICommodityDao {
     public void testQueryAllCommodityByCommodityName(){
         System.out.println(commodityDao.queryAllCommodityByCommodityName("苹果"));
     }
+
+    @Test
+    public void testQueryAllCommodityByChoose(){
+        System.out.println(commodityDao.queryAllCommodityByChoose("销量","降序"));
+    }
 }
