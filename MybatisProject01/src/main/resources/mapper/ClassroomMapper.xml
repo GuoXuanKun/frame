@@ -56,4 +56,24 @@
 
 
 
+    <!-- 注意： 此处 使用的的是  结果映射  resultMap   -->
+    <select id="queryClassroomByCno"  resultMap="classroomAndStudentMap">
+
+        SELECT
+            c.cno,
+            c.cname,
+            c.addr
+
+
+        FROM
+            t_classroom
+                c
+        where cno  =#{cno}
+
+    </select>
+
+
+
+
+
 </mapper>
