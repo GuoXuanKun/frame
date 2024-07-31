@@ -63,6 +63,7 @@
         <mapper resource="mapper/ClassroomMapper.xml" />
         <mapper resource="mapper/OrderMapper.xml" />
         <mapper resource="mapper/BlogMapper.xml" />
+        <mapper class="com.gmgx.dao.ITeacherDao" />
         <!-- 根据你的代码编写，加载对应的mapper.xml -->
     </mappers>
 
