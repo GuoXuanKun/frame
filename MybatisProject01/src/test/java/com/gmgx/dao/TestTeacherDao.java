@@ -58,10 +58,22 @@ public class TestTeacherDao {
     public  void testAddTeacher(){
 
         ITeacherDao   teacherDao  =    session.getMapper(ITeacherDao.class);
-        System.out.println(teacherDao.addTeacher(new Teacher(0,"刘德华","男")));
+        System.out.println(teacherDao.addTeacher(new Teacher(1,"李文浩","男")));
         session.commit();
 
     }
 
+    @Test
+    public void testUpdateTeacher(){
+        ITeacherDao   teacherDao  =    session.getMapper(ITeacherDao.class);
+        System.out.println(teacherDao.updateTeacher(new Teacher(1, "李*浩", "男")));
+        session.commit();
+    }
 
+    @Test
+    public void testDeleteTeacher(){
+        ITeacherDao   teacherDao  =    session.getMapper(ITeacherDao.class);
+        System.out.println(teacherDao.deleteTeacher(new Teacher(8, "李*浩", "男")));
+        session.commit();
+    }
 }
