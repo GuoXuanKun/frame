@@ -37,6 +37,7 @@
     <mappers>
         <mapper resource="mapper/BrandMapper.xml" />
         <mapper resource="mapper/CommodityMapper.xml" />
+        <mapper resource="mapper/ShoppingCartMapper.xml" />
         <!-- 根据你的代码编写，加载对应的mapper.xml -->
     </mappers>
 
