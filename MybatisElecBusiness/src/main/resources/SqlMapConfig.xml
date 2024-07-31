@@ -4,6 +4,15 @@
 <configuration>
 
     <properties resource="db.properties"></properties>
+
+
+
+    <typeAliases>
+        <package name="com.gmgx.entity"/><!-- 对应的别名  同 类名 一样，或者 类名首字母小写（推荐）  -->
+    </typeAliases>
+
+
+
     <!-- 和spring整合后 environments配置将废除-->
     <environments default="development">
         <environment id="development">
