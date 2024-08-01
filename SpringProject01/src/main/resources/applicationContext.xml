@@ -45,5 +45,62 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 
+    <!-- 如果属性 是 数组  set方式实现  -->
+    <bean id="stu6" class="com.gmgx.entity.Student">
+        <!-- 这种写法只能给 一个 元素（第一个元素赋值） -->
+        <!--        <property name="scoreArr" value="1001"></property>-->
+        <!-- 给数组 多个元素 赋值（给数组添加多个元素） -->
+        <property name="scoreArr">
+            <array>
+                <value>101</value>
+                <value>102</value>
+            </array>
+        </property>
+    </bean>
+
+
+
+    <!-- 如果属性 是 集合 或数组 用构造方法的实现  -->
+    <bean id="stu7" class="com.gmgx.entity.Student">
+        <!--        <constructor-arg name="scoreArr" value="2001"></constructor-arg>-->
+        <constructor-arg name="scoreArr">
+            <array>
+                <value>201</value>
+                <value>202</value>
+            </array>
+        </constructor-arg>
+
+    </bean>
+
+
+
+    <bean id="stu8" class="com.gmgx.entity.Student">
+        <!--        <property name="addrList" value="xm"></property>-->
+        <property name="addrList">
+            <list>
+                <value>qz</value>
+                <value>zz</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 构造方法同理 -->
+
+
+
+
+
+
+
+    <bean id="stu9" class="com.gmgx.entity.Student">
+        <!--        <property name="addrList" value="xm"></property>-->
+        <property name="phoneMap">
+            <map>
+                <entry key="1" value="1300000000"></entry>  <!-- 迭代器 -->
+                <entry key="2" value="1300000001"></entry>
+            </map>
+        </property>
+    </bean>
+
+
 
 </beans>
