@@ -4,7 +4,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class TestGetBean {    ClassPathXmlApplicationContext applicationContext =null;
+import java.util.Map;
+
+public class TestGetBean {
+    ClassPathXmlApplicationContext applicationContext =null;
 
     @Before
     public void beforeMethod(){
@@ -49,7 +52,8 @@ public class TestGetBean {    ClassPathXmlApplicationContext applicationContext 
 
         // 1 使用的是 setter 的方式 赋值
         Student stu1  = (Student) applicationContext.getBean("stu2");
-        System.out.println(stu1);
+
+
 
 
     }
@@ -63,7 +67,50 @@ public class TestGetBean {    ClassPathXmlApplicationContext applicationContext 
 
     }
 
+    /**
+     * 测试 如果数据 非 基本数据类型 （比如 数组  或集合 元素类型 是 基本数据类型 或 字符串 ） 怎么赋值
+     */
+    @Test
+    public void test04(){
 
+        // 1 使用的是 setter 的方式 赋值
+//        Student stu  = (Student) applicationContext.getBean("stu6");
+
+        Student stu  = (Student) applicationContext.getBean("stu7");
+        for (Integer score:stu.getScoreArr()){
+            System.out.println(score);
+        }
+
+
+    }
+
+    @Test
+    public void test05(){
+
+        // 1 使用的是 setter 的方式 赋值
+//        Student stu  = (Student) applicationContext.getBean("stu6");
+
+        Student stu  = (Student) applicationContext.getBean("stu8");
+        for (String addr:stu.getAddrList()){
+            System.out.println(addr);
+        }
+
+
+    }
+
+    @Test
+    public void test06(){
+
+        // 1 使用的是 setter 的方式 赋值
+//        Student stu  = (Student) applicationContext.getBean("stu6");
+
+        Student stu  = (Student) applicationContext.getBean("stu9");
+        Map<Integer,String> phoneMap  = stu.getPhoneMap();
+        for (Integer key:phoneMap.keySet()){
+            System.out.println(phoneMap.get(key));
+        }
+
+    }
 
 
     public   void test(){
