@@ -23,17 +23,17 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- 注意：虽然 value的值都是用引号引起来，但是并不代表 赋的值就是都是字符串 ，
 而是 会根据实际的内容，判定，比如 sno是整数类型，引号里面只能放整数 -->
     <!-- 先通过无参构造 创建出 一个对象，然后调用它的set方法 给参数赋值 -->
-        <bean id="stu2" class="com.gmgx.entity.Student" >
-            <property name="sno" value="1"></property>
-            <property name="sname" value="zhw"></property>
-        </bean>
+<!--        <bean id="stu2" class="com.gmgx.entity.Student" >-->
+<!--            <property name="sno" value="1"></property>-->
+<!--            <property name="sname" value="zhw"></property>-->
+<!--        </bean>-->
 
     <!--2 通过构造方法的方式赋值  -->
 
-<!--    <bean id="stu3" class="com.gmgx.entity.Student">-->
-<!--        <constructor-arg name="sno" value="3" index="0"></constructor-arg>-->
-<!--        <constructor-arg name="sname" value="zhw3" index="1"></constructor-arg>-->
-<!--    </bean>-->
+    <bean id="stu3" class="com.gmgx.entity.Student">
+        <constructor-arg name="sno" value="3" index="0"></constructor-arg>
+        <constructor-arg name="sname" value="zhw3" index="1"></constructor-arg>
+    </bean>
 
     <!--    <bean id="stu4" class="com.gmgx.entity.Student">-->
     <!--        <constructor-arg name="sno" value="3"></constructor-arg>-->
