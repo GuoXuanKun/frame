@@ -4,11 +4,41 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 
 
 public class Student {
+
     private Integer sno;
     private String sname;
+
+    private  Integer[] scoreArr;
+
+    private List<String> addrList;
+
+    public List<String> getAddrList() {
+        return addrList;
+    }
+
+    public void setAddrList(List<String> addrList) {
+        this.addrList = addrList;
+    }
+
+    public Student(List<String> addrList) {
+        this.addrList = addrList;
+    }
+
+    public Student(Integer[] scoreArr) {
+        this.scoreArr = scoreArr;
+    }
+
+    public Integer[] getScoreArr() {
+        return scoreArr;
+    }
+
+    public void setScoreArr(Integer[] scoreArr) {
+        this.scoreArr = scoreArr;
+    }
 
     public Integer getSno() {
         return sno;
