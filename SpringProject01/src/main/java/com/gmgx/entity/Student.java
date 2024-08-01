@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 
 
 public class Student {
@@ -15,6 +16,21 @@ public class Student {
     private  Integer[] scoreArr;
 
     private List<String> addrList;
+
+    private Map<Integer,String> phoneMap;
+
+    public Student(Map<Integer, String> phoneMap) {
+        this.phoneMap = phoneMap;
+    }
+
+    public Map<Integer, String> getPhoneMap() {
+        return phoneMap;
+    }
+
+
+    public void setPhoneMap(Map<Integer, String> phoneMap) {
+        this.phoneMap = phoneMap;
+    }
 
     public List<String> getAddrList() {
         return addrList;
