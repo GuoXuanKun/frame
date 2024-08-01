@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <!--  1一个老师 对应 一个班级  -->
+    <bean id="t1" class="com.gmgx.entity.Teacher">
+        <property name="tno" value="1"></property>
+        <property name="tname" value="zhw"></property>
+        <property name="classroom" ref="c1"></property>
+    </bean>
+
+    <bean id="c1" class="com.gmgx.entity.Classroom">
+        <property name="cno" value="1001"></property>
+        <property name="cname" value="java1"></property>
+    </bean>
+
+
+
+    <!--  一个班级 对应 多个老师  -->
+    <bean id="t2" class="com.gmgx.entity.Teacher">
+        <property name="tno" value="2"></property>
+        <property name="tname" value="zhw2"></property>
+    </bean>
+
+
+    <bean id="t3" class="com.gmgx.entity.Teacher">
+        <property name="tno" value="3"></property>
+        <property name="tname" value="zhw3"></property>
+    </bean>
+
+
+
+    <bean id="c2" class="com.gmgx.entity.Classroom">
+        <property name="cno" value="1001"></property>
+        <property name="cname" value="java1"></property>
+        <property name="teachers">
+            <list>
+                <ref bean="t2"></ref>
+                <ref bean="t3"></ref>
+            </list>
+        </property>
+    </bean>
+
+
+<!-- 构造方法同理 -->
+
+    <!-- 实现一下 上面的代码   另外  使用 构造方法的方式  实现 注入  -->
+<!-- map 实现 -->
+
+    <!-- 1 复习 今天的内容  2 继续改造前天的作业  3 预习 后续的内容 -->
+
+
+
+
+</beans>
