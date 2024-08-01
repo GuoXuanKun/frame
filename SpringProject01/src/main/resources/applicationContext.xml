@@ -4,14 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--   写内容 -->
     <!--  通过 spring new 一个对象   -->
     <!-- bean 豆子 javaBean 将java对象当做一个个豆子  -->
     <!-- IOC 控制反转  new Student() 由Spring来做，你只要把配方给他 -->
-    <bean id="stu1" class="com.gmgx.entity.Student">
+    <!--singleton 单例（默认）   当前 spring容器（专属空间） 只有一个实例化对象
+        prototype 原型         可以通过多次 调用 getBean 获得多个对象
+     -->
+    <bean id="stu" class="com.gmgx.entity.Student" scope="prototype" init-method="initMethod" destroy-method="destroyMethod">
         <!--DI 依赖注入  由Spring帮你 赋值（赋 对象  ）   -->
         <property name="sno" value="1"></property>
-        <property name="sname" value="gxk"></property>
+        <property name="sname" value="zhw"></property>
     </bean>
 
 </beans>
