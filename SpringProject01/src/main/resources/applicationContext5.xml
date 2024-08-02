@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+            单例模式（整个Spring容器中 有且仅有一份 默认 在 配置加载后（applicaitonContext对象创建的时候））被创建
+            原型模式（每个getBean方法调用 就会产生一个 对象）
+        -->
+    <!-- 单例模式 默认  提前加载好的（预加载） -->
+    <bean id="t1" class="com.gmgx.entity.Teacher" scope="singleton" lazy-init="true">
+        <property name="tno" value="1"></property>
+        <property name="tname" value="单例模式下产生的对象"></property>
+    </bean>
+
+    <!-- 原型模式 都是 按需加载 -->
+    <bean id="t2" class="com.gmgx.entity.Teacher" scope="prototype">
+        <property name="tno" value="2"></property>
+        <property name="tname" value="原型模式下产生的对象"></property>
+    </bean>
+
+
+
+
+</beans>
