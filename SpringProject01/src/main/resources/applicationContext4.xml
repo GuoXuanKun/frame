@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--  注意：虽然 class写的是 工厂类  ，实际上  真正 起到作用的是 factory-method ，让它 调用 createStudent 静态方法  -->
+    <bean id="stu1" class="com.gmgx.entity.StudentFactory" init-method="createStudent"></bean>
+
+    <!-- 非静态工厂方法 ，先创建工厂对象，然后让工厂对象，生产 学生 -->
+    <bean id="studentFactory" class="com.gmgx.entity.StudentFactory" init-method="setConfig"></bean>
+    <!--在使用这个工厂对象的创建学生方法（生产方法） -->
+    <bean id="stu2" class="com.gmgx.entity.Student" factory-bean="studentFactory" factory-method="createStudent2"></bean>
+
+</beans>
