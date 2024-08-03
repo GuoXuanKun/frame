@@ -1,5 +1,6 @@
 package com.gmgx.controller;
 
+import com.gmgx.entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,6 +41,22 @@ public class StudentController {
         mv.addObject("sname","zhw");
         /* jsp 文件名 （不用后缀）  */
         mv.setViewName("queryStudentBySno");
+
+        return mv;
+    }
+
+    @RequestMapping("register")
+    public ModelAndView register(Student student){
+
+
+        System.out.println("register:stu=" +student);
+
+
+        ModelAndView mv   = new   ModelAndView();
+        // 相当于request.setAttribute();
+        mv.addObject("msg","成功");
+        /* jsp 文件名 （不用后缀）  */
+        mv.setViewName("main");
 
         return mv;
     }
