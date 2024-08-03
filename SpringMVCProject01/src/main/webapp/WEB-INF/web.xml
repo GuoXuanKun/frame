@@ -9,6 +9,20 @@
   <display-name>Archetype Created Web Application</display-name>
 
 
+
+  <!--  <servlet>-->
+  <!--    <servlet-name>studentServlet</servlet-name>-->
+  <!--    <servlet-class>com.gmgx.controller.StudentServlet</servlet-class>-->
+  <!--  </servlet>-->
+
+  <!--<servlet-mapping>-->
+  <!--  <servlet-name>studentServlet</servlet-name>-->
+  <!--  <url-pattern>/student</url-pattern>-->
+  <!--</servlet-mapping>-->
+
+
+
+
   <servlet>
     <servlet-name>springMVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
