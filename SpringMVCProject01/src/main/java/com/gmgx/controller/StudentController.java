@@ -18,4 +18,12 @@ public class StudentController {
         System.out.println("login方法");
         return "main";
     }
+
+    @RequestMapping("queryStudentBySname")
+    public String queryStudentBySname(String  sname){
+
+        System.out.println("queryStudentBySname:sname=" +sname);
+
+        return "main";
+    }
 }
