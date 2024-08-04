@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+">
+<!-- 组件   -->
+    <!-- ioc 控制反转  原先通过 配置 bean标签的方式 ，在spring容器 中添加对象  -->
+    <!--通过 扫描 + 注解 方式 来实现   -->
+    <!-- 指定路径 ： 包路径    Spring 会 去扫描  包底下   所有 类（包括 子包）  -->
+    <context:component-scan base-package="com.gmgx"></context:component-scan>
+    <!--
+     关于注解 ：写在 类上面
+     四个：分别代表 四层：
+     控制层 @Controller
+     业务逻辑层 @Service
+     数据访问层 @Repository
+     其他层（比如 工具类等等）  @Component
+
+     如何实现自动注入：在属性上方： @Resource  （可以不用给 属性 写getset方法）
+    -->
+</beans>
