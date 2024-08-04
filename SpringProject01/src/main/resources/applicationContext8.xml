@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+<!--
+    <bean id="t1" class="com.gmgx.entity.Teacher" autowire="byType">
+        <property name="tno" value="1"></property>
+        <property name="tname" value="zhw"></property>
+    </bean>
+
+    <bean id="t2" class="com.gmgx.entity.Teacher" autowire="byType">
+        <property name="tno" value="2"></property>
+        <property name="tname" value="zhw2"></property>
+    </bean>
+
+    <bean id="c1" class="com.gmgx.entity.Classroom">
+        <property name="cno" value="1001"></property>
+        <property name="cname" value="java1"></property>
+    </bean>
+-->
+
+
+    <!--<bean id="t1" class="com.gmgx.entity.Teacher">
+        <property name="tno" value="1"></property>
+        <property name="tname" value="zhw"></property>
+    </bean>-->
+
+    <bean id="t2" class="com.gmgx.entity.Teacher">
+        <property name="tno" value="2"></property>
+        <property name="tname" value="zhw2"></property>
+    </bean>
+
+    <!-- 报错：无法自动装配。存在多个 'List<Teacher>' 类型的 Bean。Bean: t1,t2。属性: 'teachers'
+        自动注入方式 只能是  一对一 模式下使用
+     -->
+    <bean id="c1" class="com.gmgx.entity.Classroom" autowire="byType">
+        <property name="cno" value="1001"></property>
+        <property name="cname" value="java1"></property>
+    </bean>
+
+
+
+
+</beans>
