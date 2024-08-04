@@ -27,7 +27,9 @@
 - 通过 注解 + 扫描
   - 在 applicationContext.xml 里
     - ![img_10.png](img_10.png)
-- ![img_7.png](img_7.png)
+    - ![img_29.png](img_29.png)
+- 主键扫描
+  - ![img_7.png](img_7.png)
 - 注解 
   - ![img_8.png](img_8.png)
     - 有四个: (写在类上面)
@@ -36,30 +38,32 @@
     - 数据访问层 @Repository
     - 其他层(工具类) @Component
   - 自动注入
-    - @Resource (可以不用写 get set 方法)
+    - @Resource (可以不用写 get set 方法) 通过 反射实现的  
 
 - 通过扫描+注解的方式 取代了原来的逐个 配置bean标签方式，更加简便
   - 如何获得 Bean 对象 
-    - ``````
-      如何获得这个bean ，getBean
-        1 没有其他配置；默认  类名首字母小写
-        2 如果在@Controller(“名字”) 通过 名字
-        3 直接用类名.class 的方式获得（推荐）
+    - 如何获得这个bean ，getBean
+      - 1 没有其他配置；默认  类名首字母小写
+        - ![img_30.png](img_30.png)
+      - 2 如果在@Controller(“名字”) 通过 名字
+        - ![img_31.png](img_31.png)
+      - 3 直接用类名.class 的方式获得（推荐）
+        - ![img_32.png](img_32.png)
       
 
-- 传统 与 注解 的区别
+- 传统 与 注解+扫描的方式 的区别
   - ``````
     普通写法（配置bean标签）和注解+扫描写法的对比
-    普通写法 每个类都要在xml中配置一个 bean标签
-    新的写法 只要在xml中添加对应的依赖（.xsd 等）以及加入扫描标签即可，
-    并且要在类上方写上对应的注解（
-    四个注解：
-      控制层 @Controller
-      业务逻辑层 @Service
-      数据访问层 @Repository
-      其他层（比如 工具类等等）  @Component
-    ）
-    （一劳永逸）
+    1.普通写法 每个类都要在xml中配置一个 bean标签
+      新的写法 只要在xml中添加对应的依赖（.xsd 等）以及加入扫描标签即可，
+      并且要在类上方写上对应的注解（
+      四个注解：
+        控制层 @Controller
+        业务逻辑层 @Service
+        数据访问层 @Repository
+        其他层（比如 工具类等等）  @Component
+      ）
+      （一劳永逸）
     2 普通写法：存在属性注入的时候，属性需要提供set方法
       新的写法：存在属性注入的时候，属性不用提供set方法（系统通过反射获得）
     3 普通写法，要在bean中配置 ref或者 通过 autowire="byType"自动注入
