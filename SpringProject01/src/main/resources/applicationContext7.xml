@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- 无法自动装配。存在多个 'Classroom' 类型的 Bean。Bean: c1,c2。属性: 'classroom'   -->
+    <!--
+         autowire="byType"
+         优点，只认类型 ，id值和属性名不一致也没关系
+         缺点：当存在多个同类型的 bean 无法分辨，直接报错(解决方案，只能保留一个)
+
+     -->
+    <bean id="t1" class="com.gmgx.entity.Teacher" autowire="byType">
+        <property name="tno" value="1"></property>
+        <property name="tname" value="zhw"></property>
+    </bean>
+
+    <bean id="c1" class="com.gmgx.entity.Classroom">
+        <property name="cno" value="1001"></property>
+        <property name="cname" value="java1"></property>
+    </bean>
+
+<!--
+    <bean id="c2" class="com.gmgx.entity.Classroom">
+        <property name="cno" value="1001"></property>
+        <property name="cname" value="java1"></property>
+    </bean>-->
+
+
+
+</beans>
