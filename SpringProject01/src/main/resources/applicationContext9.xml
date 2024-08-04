@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+">
+    <!--
+     普通版本实现：
+     1 创建 三个类（控制层  业务逻辑层 数据访问层  ）
+     2 建立关系（控制层类        有       业务逻辑层类的属性  ）
+            （ 业务逻辑层类    有       数据访问层类的属性  ）
+        普通写法：属性必须有set方法
+    3 在applicationContext。xml 配置三个bean
+    并且建立关联关系（可以 通过  autowire="byType" 简写 ）
+
+    暴露了问题：如果后续 由许多的这种类 要配 是不是 每次都要修改 xml文件，烦不烦？？？？
+    // 由此 ，引入了扫描+注解 简化了开发代码（流程）  见 applicationContext10.xml
+    -->
+
+
+
+
+    <bean id="studentController" class="com.gmgx.controller.StudentController" autowire="byType">
+<!--        <property name="studentService" ref="studentService"></property>-->
+    </bean>
+
+    <bean id="studentService" class="com.gmgx.service.StudentService" autowire="byType"></bean>
+
+    <bean id="studentDao" class="com.gmgx.dao.StudentDao" autowire="byType"></bean>
+
+    <bean id="jdbcUtils" class="com.gmgx.util.JDBCUtils"></bean>
+</beans>
