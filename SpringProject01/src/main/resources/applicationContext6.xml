@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- 类和类之间的关系  1个老师 在 一个班级   一个班级由多个老师-->
+    <!--先要有一个老师 和一个班级 然后，根据需要建立关系 -->
+    <!--一个老师的 classroom属性 是班级对象 -->
+    <!-- 类和类之间关系  注入  一个老师对应一个班级 -->
+    <bean id="t1" class="com.gmgx.entity.Teacher" autowire="byName">
+        <property name="tno" value="1"></property>
+        <property name="tname" value="zhw"></property>
+<!--        <property name="classroom" ref="c1" ></property>-->
+    </bean>
+
+<!-- id 值  和   属性名 一致，才会 实现  autowire="byName"  根据名字 自动注入 -->
+    <!-- 缺点：只认名字 如果id值 和 属性名 不一致，就无法注入 -->
+    <!--  优点：当 存在2个 2个以上 Classroom ，它只会找和名字相同的那个bean -->
+    <bean id="classroom" class="com.gmgx.entity.Classroom">
+        <property name="cno" value="1001"></property>
+        <property name="cname" value="java1"></property>
+    </bean>
+
+    <bean id="classroom2" class="com.gmgx.entity.Classroom">
+        <property name="cno" value="1002"></property>
+        <property name="cname" value="java2"></property>
+    </bean>
+    <!-- byName 只认名字，不认类型，容易报错 -->
+<!-- 报错：
+ Cannot convert value of type 'com.gmgx.entity.Student' to required type 'com.gmgx.entity.Classroom' for property 'classroom':
+-->
+    <!--<bean id="classroom" class="com.gmgx.entity.Student">
+        <property name="sno" value="101"></property>
+        <property name="sname" value="zs"></property>
+    </bean>-->
+
+
+
+
+
+
+</beans>
