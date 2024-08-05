@@ -17,4 +17,11 @@ public class StudentServiceImpl implements IStudentService {
     public List<Student> queryAllStudent() {
         return studentDao.queryAllStudent();
     }
+
+    @Override
+    public boolean register(Student student) {
+        return studentDao.register(student);
+    }
+
+
 }
