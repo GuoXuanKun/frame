@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class Student {
     private  Integer sno;
     private  String sname;
+    private  String password;
 }
