@@ -8,10 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("student")
 public class StudentController {
-
     @RequestMapping("login")
     public void login(){
-        System.out.println("login");
+
+        System.out.println("login方法");
     }
 
     @RequestMapping("login2")
@@ -28,7 +28,6 @@ public class StudentController {
 
         return "main";
     }
-
     @RequestMapping("queryStudentBySno")
     public ModelAndView queryStudentBySname(Integer  sno){
 
@@ -45,6 +44,7 @@ public class StudentController {
         return mv;
     }
 
+
     @RequestMapping("register")
     public ModelAndView register(Student student){
 
@@ -60,4 +60,5 @@ public class StudentController {
 
         return mv;
     }
+
 }
