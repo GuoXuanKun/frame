@@ -56,7 +56,21 @@ public List<Student> queryAllStudent(){
 
     }
 
+    /**
+     * 学生登录
+     * @param sno
+     * @param password
+     * @return
+     */
+    public boolean login(int sno,String password){
 
+        String sql   ="select * from t_student where sno=? and password = ?";
+        int result  = jdbcUtils.doAddObject(sql,sno,password);
+
+
+        return result>0;
+
+    }
 
 
 }
