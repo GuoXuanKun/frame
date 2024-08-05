@@ -9,9 +9,13 @@ import java.io.IOException;
 //@WebServlet("/student")
 public class StudentServlet extends HttpServlet {
 
+    private String encoding;
+
     @Override
     public void init(ServletConfig config) throws ServletException {
-        config.getInitParameter("name");
+        System.out.println(config.getInitParameter("name"));
+        encoding=config.getInitParameter("encoding");
+        System.out.println("encoding:"+encoding);
     }
 
     @Override
