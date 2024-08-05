@@ -26,7 +26,7 @@
 
 ## SpringMVC
 - 添加中文过滤器
-  - ![img_2.png](img_2.png)
+  - ![img_3.png](img_3.png)
 ### 报错处理
 
 - @Resource 没法加载出来
