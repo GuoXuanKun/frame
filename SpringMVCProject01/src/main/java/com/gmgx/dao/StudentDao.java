@@ -39,6 +39,24 @@ public List<Student> queryAllStudent(){
 }
 
 
+    /**
+     * 学生注册
+     * @param student
+     * @return
+     */
+    public boolean register(Student student){
+        List<Student> list  = new ArrayList<>();
+
+        String sql   ="insert into t_student(sname,password)values(?,?)";
+        int newSno  = jdbcUtils.doAddObject(sql,student.getSname(),student.getPassword());
+
+        student.setSno(newSno);
+
+        return newSno>0;
+
+    }
+
+
 
 
 }
