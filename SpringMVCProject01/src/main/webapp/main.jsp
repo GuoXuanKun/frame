@@ -12,5 +12,7 @@
 </head>
 <body>
 main
+${msg}
+
 </body>
 </html>
