@@ -20,6 +20,7 @@
   
     3 修改 @Service("studentService") 小括号的值（和 控制层中的属性名一致）
   
+- ![img_1.png](img_1.png)
 
 
 
