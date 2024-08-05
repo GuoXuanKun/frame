@@ -25,6 +25,8 @@
 - ![img_1.png](img_1.png)
 
 ## SpringMVC
+- 添加 中文过滤器
+  - ![img_2.png](img_2.png)
 
 ### 报错处理
 
