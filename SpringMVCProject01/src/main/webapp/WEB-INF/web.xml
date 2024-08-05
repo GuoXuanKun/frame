@@ -55,4 +55,27 @@
   </filter-mapping>
 
 
+
+
+  <servlet>
+    <servlet-name>studentServlet</servlet-name>
+    <servlet-class>com.gmgx.controller.StudentServlet</servlet-class>
+    <init-param>
+      <param-name>name</param-name>
+      <param-value>gxk</param-value>
+    </init-param>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>studentServlet</servlet-name>
+    <url-pattern>/studentServlet</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
 </web-app>
