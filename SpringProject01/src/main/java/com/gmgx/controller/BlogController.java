@@ -21,17 +21,16 @@ public class BlogController {
 //    private IBlogService blogService;
 
 
-    /*第四种情况： 当 接口对应的实现类 有多个实现类，直接@Autowired ，不需要做其他变动，在对应要注入的属性的的实现类的注解后，加上 括号（和本类中的属性名一致）      */
+    /*第四种情况： 当 接口对应的实现类 有多个实现类，直接@Autowired ，不需要做其他变动，
+    在对应要注入的属性的的实现类的注解后，加上 括号（和本类中的属性名一致）      */
     @Autowired
     private IBlogService blogService;
     public  void login(){
         System.out.println("blog controller login");
         /* 第一种情况*/
 //        blogService.login();
-
         /* 第二种情况*/
 //        blogServiceImpl2.login();
-
         /* 第三种情况*/
         blogService.login();
 
