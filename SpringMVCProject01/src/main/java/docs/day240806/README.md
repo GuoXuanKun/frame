@@ -17,6 +17,8 @@
     - ![img_7.png](img_7.png)
     - ![img_8.png](img_8.png)
 
+- 请求类型(GET POST) 的设置
+  - ![img_13.png](img_13.png)
 ### 截图寄存处
 
 ### 报错处理
