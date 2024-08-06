@@ -13,7 +13,7 @@
 <body>
 ${msg}
 <%-- 注意 斜杠  --%>
-<form action="student/login.do" method="post">
+<form action="student/login" method="post">
     姓名: <input name="sno" /><br/>
     密码: <input name="password" type="password"/><br/>
     <input type="submit" name="注册">
