@@ -23,5 +23,16 @@ public class StudentServiceImpl implements IStudentService {
         return studentDao.register(student);
     }
 
+    /**
+     * 学生 登录
+     * @param sno
+     * @param password
+     * @return
+     */
+    @Override
+    public List<Student> login(int sno, String password) {
+        return studentDao.login(sno,password);
+    }
+
 
 }
