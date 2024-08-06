@@ -62,9 +62,10 @@ public class StudentController {
     @RequestMapping("login")
     public ModelAndView login(int sno,String password){
         System.out.println("login方法");
-        List<Student> students = new ArrayList<>();
+        List<Student> students = studentService.login(sno, password);
         ModelAndView modelAndView = new ModelAndView();
         if (students!= null){
+            System.out.println(students.get(0));
             modelAndView.addObject("msg",students.get(0));
             modelAndView.setViewName("redirect:../main.jsp");
         }else {
