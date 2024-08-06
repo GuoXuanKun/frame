@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: java2403
-  Date: 2024/8/5
-  Time: 16:30
+  Date: 2024/8/6
+  Time: 10:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,13 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+<h1>show</h1>
 ${msg}
-<%-- 注意 斜杠  --%>
-<form action="student/register" method="post">
-    <input name="sname" /><br/>
-    <input name="password" type="password"/><br/>
-    <input type="submit" name="注册">
-</form>
-
 </body>
 </html>
