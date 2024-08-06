@@ -10,4 +10,11 @@ public interface IStudentService {
 
     public boolean register(Student student);
 
+    /**
+     * 学生 登录
+     * @param sno
+     * @param password
+     * @return
+     */
+    public List<Student> login(int sno,String password);
 }
