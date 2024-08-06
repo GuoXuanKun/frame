@@ -8,6 +8,34 @@
     - ![img.png](img.png)
     - ![img_1.png](img_1.png)
     - ![img_2.png](img_2.png)
+    - 几种类型
+        * 1 控制层 方法 参数 用 和 请求参数名一致（缺点，要挨个写）
+            * ![img_15.png](img_15.png)
+        * 2 控制层 方法 参数 通过对象接受，要求 属性名 和 请求参数名 一致
+            * ![img_16.png](img_16.png)
+        * 3 在实体类中 涉及到 集合和数组类型属性（元素类型基本数据类型+String） 直接可用（属性名 和 参数名要同名 即使
+          一个参数名出现多次）
+            * ![img_17.png](img_17.png)
+        * 4 直接传递的是数组 ，只要保证 数组名和参数名一致就可以
+
+        * 5 直接传递的是集合 ，要使用注解 @RequestParam("...") 并 只要保证 数组名和参数名一致就可以
+            * ![img_18.png](img_18.png)
+        * 6 对象中的元素是对象，在前端页面中 属性.属性 方式
+          eg User有dog对象作为属性 dog对象 有did 和 dname属性
+          前端 name =“dog.did” "dog.dname"
+            * 后端
+                * ![img_19.png](img_19.png)
+            * 前端
+                * ![img_20.png](img_20.png)
+
+        * 7 对象中的元素是集合，集合的元素是其他对象，
+          前端 name =“address[0].aid” 代表第一个元素的aid属性值
+          name =“address[0].name” 代表第一个元素的name属性值
+          以此类推
+            * 前端
+                * ![img_21.png](img_21.png)
+            * 后端
+                * ![img_22.png](img_22.png)
 - 跳转页面 的方式
     - 默认
         - 这种方法转发到指定的jsp页面（会经过视图解析器） , 不会经过 controller
