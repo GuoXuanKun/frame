@@ -2,7 +2,7 @@
 
 ## Review
 
-### SpringMVC
+## SpringMVC
 
 - 请求参数 的三种方式
     - ![img.png](img.png)
@@ -16,9 +16,9 @@
         * 3 在实体类中 涉及到 集合和数组类型属性（元素类型基本数据类型+String） 直接可用（属性名 和 参数名要同名 即使
           一个参数名出现多次）
             * 后端
-              * ![img_23.png](img_23.png)
+                * ![img_23.png](img_23.png)
             * 前端
-              * ![img_24.png](img_24.png)
+                * ![img_24.png](img_24.png)
         * 4 直接传递的是数组 ，只要保证 数组名和参数名一致就可以
             * ![img_17.png](img_17.png)
         * 5 直接传递的是集合 ，要使用注解 @RequestParam("...") 并 只要保证 数组名和参数名一致就可以
@@ -75,6 +75,32 @@
 - 请求类型(GET POST) 的设置
     - ![img_13.png](img_13.png)
 
+### ajax
+
+- dataType:"text"
+    - 后端
+        - `@ResponseBody`
+            - 加入 ResponseBody 响应体 返回的数据，不再是 jsp页面路径 而是 响应数据
+        - ![img_25.png](img_25.png)
+    - 前端
+        - ![img_26.png](img_26.png)
+- dataType:"json"
+    - 后端
+        - 导 jQuery.js 文件
+            - ![img_29.png](img_29.png)
+        - 加依赖
+            - ![img_28.png](img_28.png)
+        - applicationContext.xml 加配置
+            - ![img_27.png](img_27.png)
+        - 源码
+            - `@ResponseBody`
+                - 加入 ResponseBody 响应体 返回的数据，不再是 jsp页面路径 而是 响应数据
+            - ![img_30.png](img_30.png)
+            - ![img_31.png](img_31.png)
+    - 前端
+        - ![img_32.png](img_32.png)
+        - ![img_33.png](img_33.png)
+
 ### 截图寄存处
 
 ### 报错处理
@@ -84,3 +110,5 @@
     - 解决方案
         - ![img_14.png](img_14.png)
         - 可以一步到位 实现 指定文件夹下的所有文件都不用经过 前置控制器
+- ajax 中文乱码问题
+    - ![img_34.png](img_34.png)
