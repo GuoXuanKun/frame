@@ -9,7 +9,8 @@
     - ![img_1.png](img_1.png)
     - ![img_2.png](img_2.png)
 - 跳转页面 的方式
-    - 转发
+    - 默认
+        - 这种方法转发到指定的jsp页面（会经过视图解析器） , 不会经过 controller
         - ![img_3.png](img_3.png)
         - ![img_4.png](img_4.png)
         - ![img_5.png](img_5.png)
