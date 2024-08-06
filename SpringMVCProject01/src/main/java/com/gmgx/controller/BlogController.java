@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
@@ -218,6 +219,26 @@ public class BlogController {
         return mv;
 
     }
+
+
+    @RequestMapping("test14")
+    public ModelAndView test14(HttpServletRequest request, HttpSession session){
+
+        request.getSession().setAttribute("msg","data");
+        session.setAttribute("msg","data");
+
+
+        ModelAndView mv   = new ModelAndView();
+        /*  默认在requset范围内，所以 重定向的话，就无法拿到数据 */
+        mv.addObject("msg","test13的数据");
+
+        mv.setViewName("redirect:../main.jsp");// 只能 通过
+        // 使用转发或重定向 跳转到 指定控制层方法
+        return mv;
+
+    }
+
+
 
 
 }
