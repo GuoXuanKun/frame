@@ -14,8 +14,21 @@
         - ![img_3.png](img_3.png)
         - ![img_4.png](img_4.png)
         - ![img_5.png](img_5.png)
-    - 重定向
-        - 不会经过视图解析器 路径要写上全路径
+    - 转发 或 重定向
+        - 不会经过视图解析器 ，所以需要写全路径
+        - 应用场景:
+            - 要 跳转到 其他 控制层的方法
+                - 登录后（student/login），直接查看全部(sutdent/queryAllStudent)
+            - 要求，直接重定向到 某个页面
+                - 注册后，直接 重定向到 首页 或者 登录界面
+        - 方式:
+            - 和 Servlet一样，传入 request 和response ,使用他们进行转发 或重定向（略）
+            - 在 setViewName(”前缀:xxxx路径“)
+                - 重定向 ：redirect redirect:../main.jsp  (注意 全路径 )
+                - 转发： forward forward:.../main.jsp
+
+
+
 - 关于 响应参数
     - ![img_6.png](img_6.png)
     - ![img_7.png](img_7.png)
