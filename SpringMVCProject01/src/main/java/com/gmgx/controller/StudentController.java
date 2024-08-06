@@ -5,6 +5,7 @@ import com.gmgx.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -14,8 +15,10 @@ public class StudentController {
     @Autowired
     private IStudentService studentService;
 
-
-    @RequestMapping("register")
+    //报错 405 ：方法不允许  Request method 'GET' not supported
+    @RequestMapping(value = "register",method = RequestMethod.POST )
+//    public ModelAndView regisger(Student student, HttpServletRequest request){
+//    public ModelAndView regisger(Student student, HttpSession session){
     public ModelAndView regisger(Student student){
         System.out.println(student);
         ModelAndView mv  = new ModelAndView();
@@ -23,13 +26,28 @@ public class StudentController {
 
         if(flag){
             mv.addObject("msg","注册成功，您的学号为："+student.getSno());
-            mv.setViewName("main");
+            // 默认是 特殊 转发 （经过前置控制器的转发到指定的jsp页面）
+            // mv.setViewName("main");
+            /* 不会经过 视图解析器   */
+            /* 把数据放在 session 中  */
+//           request.getSession().setAttribute("msg","注册成功，您的学号为："+student.getSno());
+            //     session.setAttribute("msg","注册成功，您的学号为："+student.getSno());
+
+            mv.setViewName("redirect:../main.jsp");
+
+
         }else{
             mv.addObject("msg","注册失败");
             mv.setViewName("register");
         }
 
         return  mv;
+
+
+
+
+
+
 
     }
 
