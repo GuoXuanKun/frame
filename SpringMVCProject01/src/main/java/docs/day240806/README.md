@@ -21,8 +21,7 @@
 
 ### 报错处理
 
-- 某些版本不支持 *.do
+- 前置控制器 路径 某些版本不支持 *.do
     - ![img_9.png](img_9.png)
     - 解决方案
-      - ![img_10.png](img_10.png)
-      - ![img_11.png](img_11.png)
+      - ![img_12.png](img_12.png)
