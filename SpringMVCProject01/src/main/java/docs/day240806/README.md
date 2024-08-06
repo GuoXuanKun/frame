@@ -27,6 +27,13 @@
                 - 重定向 ：redirect redirect:../main.jsp  (注意 全路径 )
                 - 转发： forward forward:.../main.jsp
 
+- 关于 将数据保存到 request 或 session
+  - 如果是 给 model(例如:`mv.addObject("msg","test12的数据");`) 直接设值，默认在requset范围内的
+  - 解决方案 三种
+      * 1 通过  参数 传入一个requst 对象 getSession setAttribute (不建议)
+      * 2 通过   参数 传入一个 session 对象，setAttribute         (不建议)
+      * 3 在 类上面添加一个 注解 @SessionAttributes({"msg","my"}) // 值是可以多个的
+          当 以下方法中  model或者 modelAndView 对象中 出现 msg 属性，就会把它的值 拷贝一份到session对象中
 
 
 - 关于 响应参数
