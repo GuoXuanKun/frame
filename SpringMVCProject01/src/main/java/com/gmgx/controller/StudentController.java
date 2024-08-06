@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping("student")
 public class StudentController {
@@ -56,9 +60,18 @@ public class StudentController {
 
 
     @RequestMapping("login")
-    public void login(){
-
+    public ModelAndView login(int sno,String password){
         System.out.println("login方法");
+        List<Student> students = new ArrayList<>();
+        ModelAndView modelAndView = new ModelAndView();
+        if (students!= null){
+            modelAndView.addObject("msg",students.get(0));
+            modelAndView.setViewName("redirect:../main.jsp");
+        }else {
+            modelAndView.addObject("msg","登录失败");
+            modelAndView.setViewName("redirect:../login.jsp");
+        }
+        return modelAndView;
     }
 
     @RequestMapping("login2")
