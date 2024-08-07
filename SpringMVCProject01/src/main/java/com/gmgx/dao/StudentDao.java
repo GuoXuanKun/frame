@@ -74,13 +74,15 @@ public List<Student> queryAllStudent(){
     public Student queryStudentBySno(Integer sno){
         Student student =null;
 
-        ResultSet rs  = jdbcUtils.doQuery("select sno,sname,password from t_student where sno=?",sno);
+        ResultSet rs  = jdbcUtils.doQuery("select sno,sname,password,photo,resume from t_student where sno=?",sno);
         try {
             while (rs.next()){
                 student  =     new Student();
                 student.setSno(rs.getInt("sno"));
                 student.setSname(rs.getString("sname"));
                 student.setPassword(rs.getString("password"));
+                student.setPhoto(rs.getString("photo"));
+                student.setResume(rs.getString("resume"));
 
             }
 
