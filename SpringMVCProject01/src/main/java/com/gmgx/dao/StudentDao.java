@@ -94,6 +94,14 @@ public List<Student> queryAllStudent(){
         return  student;
     }
 
+    public boolean modifyStudent(Student student){
+
+        String sql   ="update t_student set sname = ? ,password =? where sno  =?";
+        int count  = jdbcUtils.doUpdate(sql,student.getSname(),student.getPassword(),student.getSno());
+
+        return count>0;
+
+    }
 
 
 }
