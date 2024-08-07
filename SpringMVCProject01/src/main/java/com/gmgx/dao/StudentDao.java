@@ -105,5 +105,13 @@ public List<Student> queryAllStudent(){
 
     }
 
+    public boolean modifyStudentPhoto(Integer sno,String photo){
+
+        String sql   ="update t_student set photo = ? where sno  =?";
+        int count  = jdbcUtils.doUpdate(sql,photo,sno);
+
+        return count>0;
+
+    }
 
 }
