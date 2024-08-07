@@ -114,4 +114,13 @@ public List<Student> queryAllStudent(){
 
     }
 
+    public boolean modifyStudentResume(Integer sno,String resume){
+
+        String sql   ="update t_student set resume = ?  where sno  =?";
+        int count  = jdbcUtils.doUpdate(sql,resume,sno);
+
+        return count>0;
+
+    }
+
 }
