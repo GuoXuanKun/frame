@@ -46,4 +46,21 @@ public class AjaxStudentContrller {
 
 
 
+    @RequestMapping(value = "queryStudentBySno")
+    public ModelAndView queryStudentBySno(Integer sno){
+        ModelAndView mv   = new ModelAndView();
+
+      Student  student  =   studentService.queryStudentBySno(sno);
+
+        mv.addObject("student",student);
+
+        mv.setViewName("ajaxStudent/modifyStudent");
+        // 得到 一个 自增 地址 id值 赋值给 stu的sno属性
+        return mv;
+
+    }
+
+
+
+
 }
