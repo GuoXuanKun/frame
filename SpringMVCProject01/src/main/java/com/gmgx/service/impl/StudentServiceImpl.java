@@ -38,5 +38,9 @@ public class StudentServiceImpl implements IStudentService {
         return studentDao.queryStudentBySno(sno) ;
     }
 
+    @Override
+    public boolean modifyStudentPhoto(Integer sno, String photo) {
+        return studentDao.modifyStudentPhoto(sno,photo);
+    }
 
 }
