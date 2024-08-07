@@ -20,7 +20,7 @@ public class StudentController {
     public ModelAndView queryAllStudent(){
         ModelAndView mv = new ModelAndView();
         List<Student> slist = studentService.queryAllStudent();
-        mv.addObject(slist);
+        mv.addObject("slist",slist);
         mv.setViewName("queryAllStudent");
 
         return mv;
