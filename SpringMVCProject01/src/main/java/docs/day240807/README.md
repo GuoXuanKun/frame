@@ -27,27 +27,28 @@
         - ![img_7.png](img_7.png)
         - ![img_8.png](img_8.png)
     - ````
-    其他
-    UUID
-    获得真实路径
-    获得后缀
-    创建文件夹等等
+      其他
+      UUID
+      获得真实路径
+      获得后缀
+      创建文件夹等等
 
 ## SSM
+
 - 创建项目
-  - ![img_9.png](img_9.png)
+    - ![img_9.png](img_9.png)
 - 调整 项目 目录结构
-  - ![img_10.png](img_10.png)
+    - ![img_10.png](img_10.png)
 - 导依赖
 - 在 resources 中创建 applicationContext.xml 文件
-  - 不扫描 控制层
+    - 不扫描 控制层
 - 配置 jdbc.properties (resources 文件夹下)
 - 配置 web.xml
 - 配置 springmvc-servlet.xml (resources 文件夹下)
-  - 扫描控制层
+    - 扫描控制层
 - 配置 log4j.properties (resources 文件夹下)
 - resources 文件夹下 创建 mapper 文件夹
-- 创建 各级文件夹 
+- 创建 各级文件夹
 
 ### 报错处理
 
