@@ -9,5 +9,7 @@ public interface IStudentService {
     public List<Student> queryAllStudent();
 
     public boolean register(Student student);
+    public boolean deleteStudent(Integer sno);
+
 
 }
