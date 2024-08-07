@@ -71,4 +71,29 @@ public List<Student> queryAllStudent(){
 
 
 
+    public Student queryStudentBySno(Integer sno){
+        Student student =null;
+
+        ResultSet rs  = jdbcUtils.doQuery("select sno,sname,password from t_student where sno=?",sno);
+        try {
+            while (rs.next()){
+                student  =     new Student();
+                student.setSno(rs.getInt("sno"));
+                student.setSname(rs.getString("sname"));
+                student.setPassword(rs.getString("password"));
+
+            }
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            jdbcUtils.doClose(rs);
+        }
+        return  student;
+    }
+
+
+
 }
