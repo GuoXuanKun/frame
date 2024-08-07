@@ -19,4 +19,6 @@ public interface IStudentService {
 
     public boolean modifyStudentPhoto(Integer sno,String photo);
 
+    public boolean modifyStudentResume(Integer sno,String resume);
+
 }
