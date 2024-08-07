@@ -12,4 +12,7 @@ public interface IStudentService {
     public boolean deleteStudent(Integer sno);
 
 
+    public boolean  modifyStudent(Student student);
+
+
 }
