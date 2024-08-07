@@ -86,6 +86,18 @@ public class StudentController2 {
     }
 
 
+    @RequestMapping("queryStudentBySno2")
+    public ModelAndView queryStudentBySno2(Integer  sno){
+
+        ModelAndView mv   = new   ModelAndView();
+        Student student   =  studentService.queryStudentBySno(sno);
+        mv.addObject("student",student);
+        // 修改成功 通过 视图解析器 之后的地址  一个绝对路径  工程名/student/success.jsp
+        mv.setViewName("student/success");
+        return mv;
+    }
+
+
 
 
 }
