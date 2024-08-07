@@ -18,7 +18,13 @@ public class AjaxStudentContrller {
     private IStudentService studentService;
 
 
+    @RequestMapping("queryAllStudent")
+    @ResponseBody
+    public List<Student> queryAllStudent(){
 
+       return  studentService.queryAllStudent();
+
+    }
 
 
 }
