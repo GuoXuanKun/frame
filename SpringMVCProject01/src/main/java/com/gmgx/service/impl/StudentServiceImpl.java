@@ -33,7 +33,10 @@ public class StudentServiceImpl implements IStudentService {
         return studentDao.modifyStudent(student);
     }
 
-
+    @Override
+    public Student queryStudentBySno(Integer sno) {
+        return studentDao.queryStudentBySno(sno) ;
+    }
 
 
 }
