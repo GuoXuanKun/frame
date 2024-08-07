@@ -88,7 +88,15 @@
     <url-pattern>/img/*</url-pattern>
   </servlet-mapping>
 
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/photo/*</url-pattern>
+  </servlet-mapping>
 
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/resume/*</url-pattern>
+  </servlet-mapping>
 
 
   <!--配一个 中文处理的过滤器   这个过滤器 Spring框架提供Filter类-->
