@@ -61,6 +61,16 @@ public class AjaxStudentContrller {
     }
 
 
+    @RequestMapping(value = "modifyStudent")
+    @ResponseBody
+    public Boolean modifyStudent(Student stu){
+        return  studentService.modifyStudent(stu);
+
+
+
+    }
+
+
 
 
 }
