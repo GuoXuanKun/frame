@@ -58,5 +58,17 @@ public List<Student> queryAllStudent(){
 
 
 
+    public boolean deleteStudent(Integer sno){
+
+        String sql   ="delete from t_student where sno  =?";
+        int count  = jdbcUtils.doUpdate(sql,sno);
+
+        return count>0;
+
+    }
+
+
+
+
 
 }
