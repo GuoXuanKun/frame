@@ -15,4 +15,6 @@ public interface IStudentService {
     public boolean  modifyStudent(Student student);
 
 
+    public Student  queryStudentBySno(Integer sno);
+
 }
