@@ -11,4 +11,6 @@ public class Student {
     private  Integer sno;
     private  String sname;
     private  String password;
+    private String photo;// 头像地址
+    private String resume;// 简历（地址）
 }
