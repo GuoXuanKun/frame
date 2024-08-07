@@ -28,4 +28,12 @@ public class StudentServiceImpl implements IStudentService {
         return studentDao.deleteStudent(sno);
     }
 
+    @Override
+    public boolean modifyStudent(Student student) {
+        return studentDao.modifyStudent(student);
+    }
+
+
+
+
 }
