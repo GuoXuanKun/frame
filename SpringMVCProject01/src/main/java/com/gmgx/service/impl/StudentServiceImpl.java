@@ -23,5 +23,9 @@ public class StudentServiceImpl implements IStudentService {
         return studentDao.register(student);
     }
 
+    @Override
+    public boolean deleteStudent(Integer sno) {
+        return studentDao.deleteStudent(sno);
+    }
 
 }
