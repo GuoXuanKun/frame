@@ -26,5 +26,15 @@ public class AjaxStudentContrller {
 
     }
 
+/* ,produces = "text/html;charset=UTF-8" 如果传递非text 不要加  */
+    @RequestMapping(value = "deleteStudent")
+    @ResponseBody
+    public Boolean  deleteStudent(Integer sno){
+
+        return  studentService.deleteStudent(sno);
+    }
+
+
+
 
 }
