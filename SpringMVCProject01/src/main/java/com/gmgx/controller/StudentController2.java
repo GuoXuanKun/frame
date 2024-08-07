@@ -54,5 +54,38 @@ public class StudentController2 {
 
 
 
+    @RequestMapping("modifyStudentResume")
+    public ModelAndView modifyStudentResume(Integer sno, MultipartFile resume, HttpServletRequest request){
+        ModelAndView mv   = new ModelAndView();
+        String oldName   =    resume.getOriginalFilename();
+        String type  = oldName.substring(oldName.lastIndexOf("."));
+        String newName   = UUID.randomUUID().toString().replaceAll("-","")+type;
+        String resumePath  =  request.getServletContext().getRealPath("resume");
+        File pathFile   =  new File(resumePath);
+        if(!pathFile.exists()){
+            pathFile.mkdirs();
+        }
+
+        // 拼接  要被转存到本地的文件名（全路径）
+        File newFile   = new File(resumePath+"/"+newName);
+
+        try {
+            resume.transferTo(newFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+        boolean flag   =  studentService.modifyStudentResume(sno,"resume/"+newName);
+
+        mv.setViewName("redirect:queryStudentBySno2?sno="+sno);
+
+        return  mv;
+
+    }
+
+
+
 
 }
