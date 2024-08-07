@@ -17,4 +17,6 @@ public interface IStudentService {
 
     public Student  queryStudentBySno(Integer sno);
 
+    public boolean modifyStudentPhoto(Integer sno,String photo);
+
 }
