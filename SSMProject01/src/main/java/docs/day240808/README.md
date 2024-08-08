@@ -35,6 +35,14 @@
 - 控制 controller
     - ![img_11.png](img_11.png)
 
+### web.xml
+
+- 跟前端控制器有关
+- 这段配置代码的主要作用是设置和初始化 Spring 应用上下文。通过 ContextLoaderListener 监听器，Spring 可以在 web
+  应用程序启动时自动加载配置文件并初始化应用上下文。contextConfigLocation 参数指定了 Spring 配置文件的位置，确保 Spring
+  能找到并加载这些配置。
+    - ![img_8.png](img_8.png)
+    - ![img_9.png](img_9.png)
 
 ### Spring 和 Mybatis 需要整合
 
