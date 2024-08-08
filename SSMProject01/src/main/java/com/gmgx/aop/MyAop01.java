@@ -35,5 +35,11 @@ public class MyAop01 {
 //        System.out.println("我是 afterReturning 方法，我被人通知要执行了");
         log.debug("我是 afterReturning 方法，我被人通知要执行了");
     }
+    //写方法（目标代码 报错了 调用我 的方法）
+    public void afterThrowingMethod(){
+//        System.out.println("我是 afterThrowing 方法，我被人通知要执行了");
+        log.debug("我是 afterThrowing 方法，我被人通知要执行了");
+    }
+
 
 }
