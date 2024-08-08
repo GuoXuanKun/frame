@@ -24,6 +24,18 @@
     - .1是下标
         - ![img_7.png](img_7.png)
 
+### applicationContext.xml
+
+- 除了 controller 其他都经过这
+    - ![img_10.png](img_10.png)
+
+### springmvc-servlet.xml
+
+- 跟视图解析器有关
+- 控制 controller
+    - ![img_11.png](img_11.png)
+
+
 ### Spring 和 Mybatis 需要整合
 
 - ![img_4.png](img_4.png)
