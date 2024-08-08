@@ -22,4 +22,11 @@ public class TestTestAopService {
 
     }
 
+
+    @Test
+    public void test2(){
+        System.out.println(testAopService.addMsg("呵sb呵"));
+
+    }
+
 }
