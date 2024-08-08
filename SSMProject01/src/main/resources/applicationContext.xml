@@ -74,8 +74,16 @@
         <!--        <aop:pointcut id="myPointcut01" expression="execution(* *..*.*(..))"/>-->
         <aop:pointcut id="myPointcut01" expression="execution(* com.gmgx.service.TestAopService.*(..))"/>
         <aop:aspect id="myAspect" ref="myAop01">
-            <aop:before method="beforeMethod" pointcut-ref="myPointcut01"></aop:before>
-            <aop:after method="afterMethod" pointcut-ref="myPointcut01"></aop:after>
+            <!-- 前置通知 -->
+            <!-- <aop:before method="beforeMethod" pointcut-ref="myPointcut01"></aop:before>
+             &lt;!&ndash; 后置通知 &ndash;&gt;
+             <aop:after method="afterMethod" pointcut-ref="myPointcut01"></aop:after>
+             &lt;!&ndash; 返回通知 &ndash;&gt;
+             <aop:after-returning method="afterReturningMethod" pointcut-ref="myPointcut01"></aop:after-returning>
+             &lt;!&ndash; 异常通知 &ndash;&gt;
+             <aop:after-throwing method="afterThrowingMethod" pointcut-ref="myPointcut01"></aop:after-throwing>-->
+            <!-- 环绕通知 增强通知 -->
+            <aop:around method="aroundMethod" pointcut-ref="myPointcut01"></aop:around>
         </aop:aspect>
     </aop:config>
 
