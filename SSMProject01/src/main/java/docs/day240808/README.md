@@ -49,14 +49,17 @@
 - ![img_4.png](img_4.png)
 
 ### sqlMapConfig.xml
+
 - 设置别名
-  - ![img_13.png](img_13.png)
+    - ![img_13.png](img_13.png)
 - 再到 applicationContext.xml 进行配置
-  - ![img_12.png](img_12.png)
+    - ![img_12.png](img_12.png)
 
 ## 报错处理
 
 - ajax 要配置 (applicationContext.xml)
     - ![img_3.png](img_3.png)
+
+- ![img_14.png](img_14.png)
 
 ## 截图寄存处
