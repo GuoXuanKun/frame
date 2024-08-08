@@ -1,7 +1,8 @@
 # Note 240808
 
 ## Review
-
+- el 表达式 有就添加没有 就去除
+  - ![img_15.png](img_15.png)
 - SpringMVC 流程图
     - 前端控制器
         - /
