@@ -47,6 +47,8 @@
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- ① 配置和数据源有关 -->
         <property name="dataSource" ref="dataSource"></property>
+
+        <property name="configLocation" value="classpath:SqlMapConfig.xml"></property>
         <!-- ②其他的属性 和映射文件有关的配置信息 -->
         <property name="mapperLocations" value="classpath:mapper/*.xml">
         </property>
