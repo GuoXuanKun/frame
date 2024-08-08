@@ -15,7 +15,14 @@
 
 ## SSM
 
+### log4j.properties
 
+- 日志文件 的 地址 以及 超过指定大小 后进行备份
+    - ![img_5.png](img_5.png)
+- 最大备份数量
+    - ![img_6.png](img_6.png)
+    - .1是下标
+        - ![img_7.png](img_7.png)
 
 ### Spring 和 Mybatis 需要整合
 
