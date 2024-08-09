@@ -75,7 +75,10 @@
     <aop:config>
         <!--        <aop:pointcut id="myPointcut01" expression="execution(* *..*.*(..))"/>-->
         <aop:pointcut id="myPointcut01" expression="execution(* com.gmgx.service.TestAopService.*(..))"/>
-        <aop:aspect id="myAspect" ref="myAop01">
+        <aop:pointcut id="myPointcut02" expression="execution(* com.gmgx.service.IStudentService.*(..))"/>
+
+        <!-- ref 指向的通知类（包着  当目标对象被调用 前后等等时刻 会有 通知的动作==>执行 某个 通知方法  ） -->
+        <aop:aspect id="myAspect01" ref="myAop01">
             <!-- 前置通知 -->
             <!-- <aop:before method="beforeMethod" pointcut-ref="myPointcut01"></aop:before>
              &lt;!&ndash; 后置通知 &ndash;&gt;
@@ -87,6 +90,14 @@
             <!-- 环绕通知 增强通知 -->
             <aop:around method="aroundMethod" pointcut-ref="myPointcut01"></aop:around>
         </aop:aspect>
+
+
+        <aop:aspect id="myAspect02" ref="myAop02">
+
+            <aop:around method="logRecording" pointcut-ref="myPointcut02"></aop:around>
+
+        </aop:aspect>
+
     </aop:config>
 
 
