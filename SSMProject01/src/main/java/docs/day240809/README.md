@@ -16,19 +16,23 @@
     - 切点表达式解析
         - ![img_9.png](img_9.png)
         - 精确 切点范围
-          - 任意返回的  com.gmgx.service 任意的类和方法
-            - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.*.*(..))"/>`
-          -  通过 * 配合，实现 显示 部分 统配 I*Service 以I开头 以Service 结尾的类（接口）
-            - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.I*Service.*(..))"/>`
-          - IStudentService 包底下的 任意 方法 任意返回值 任意参数
-            - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.*(..))"/>`
-          - 通过 * 配合，实现 显示 部分 统配 query* 以query开头 任意方法（接口）
-            - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.query*(..))"/>`
-          - 通过设置 参数类型，缩小 切点范围（精准节点范围）
-            - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.*(Integer))"/>`
-            - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.*(com.gmgx.entity.Student))"/>`
-            - `<aop:pointcut id="myPointcut03" expression="execution(boolean com.gmgx.service.IStudentService.*(..))"/>`
-            - `<aop:pointcut id="myPointcut03" expression="execution(com.gmgx.entity.Student com.gmgx.service.IStudentService.*(..))"/>`
+            - 任意返回的 com.gmgx.service 任意的类和方法
+                - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.*.*(..))"/>`
+            - 通过 * 配合，实现 显示 部分 统配 I*Service 以I开头 以Service 结尾的类（接口）
+                - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.I*Service.*(..))"/>`
+            - IStudentService 包底下的 任意 方法 任意返回值 任意参数
+                - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.*(..))"/>`
+            - 通过 * 配合，实现 显示 部分 统配 query* 以query开头 任意方法（接口）
+                - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.query*(..))"/>`
+            - 通过设置 参数类型，缩小 切点范围（精准节点范围）
+                - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.*(Integer))"/>`
+                - `<aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.*(com.gmgx.entity.Student))"/>`
+                - `<aop:pointcut id="myPointcut03" expression="execution(boolean com.gmgx.service.IStudentService.*(..))"/>`
+                - `<aop:pointcut id="myPointcut03" expression="execution(com.gmgx.entity.Student com.gmgx.service.IStudentService.*(..))"/>`
+    - aop 中 涉及 当 对应的切点 对应 的范围（方法）相同（重叠的情况下）
+        - 与切面的顺序有关
+        - 2 如果设置 order 属性，根据属性 排序 （ 升序 ） 1 2 3
+            - ![img_11.png](img_11.png)
 - 切面
     - ![img_3.png](img_3.png)
 - 环绕通知
