@@ -10,4 +10,40 @@
         from t_student
     </select>
 
+    <select id="queryStudentBySno" resultType="student">
+
+        select sno,sname,password from t_student where sno  =#{sno}
+
+    </select>
+
+    <update id="modifyStudent">
+
+        update t_student
+        <set>
+            <if test="sname!=null">
+                sname  =#{sname},
+            </if>
+            <if test="password!=null">
+                password  =#{password}
+            </if>
+
+        </set>
+        where sno =#{sno}
+
+
+    </update>
+
+
+    <delete id="deleteStudentBySno">
+
+        delete from t_student where sno =#{sno}
+
+    </delete>
+
+    <insert id="addStudent" useGeneratedKeys="true" keyColumn="sno" keyProperty="sno">
+
+        insert into t_student(sname,password)values(#{sname},#{password})
+
+    </insert>
+
 </mapper>

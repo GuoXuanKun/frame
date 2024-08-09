@@ -11,9 +11,30 @@ import java.util.List;
 public class StudentServiceImpl implements IStudentService {
 
     @Autowired
-    private IStudentDao iStudentDao;
+    private IStudentDao studentDao;
     @Override
     public List<Student> queryAllStudent() {
-        return iStudentDao.queryAllStudent();
+        return studentDao.queryAllStudent();
+    }
+
+
+    @Override
+    public Student queryStudentBySno(Integer sno) {
+        return studentDao.queryStudentBySno(sno);
+    }
+
+    @Override
+    public boolean modifyStudent(Student stu) {
+        return studentDao.modifyStudent(stu);
+    }
+
+    @Override
+    public boolean deleteStudentBySno(Integer sno) {
+        return studentDao.deleteStudentBySno(sno);
+    }
+
+    @Override
+    public boolean addStudent(Student stu) {
+        return studentDao.addStudent(stu);
     }
 }

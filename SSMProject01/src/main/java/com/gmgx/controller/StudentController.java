@@ -33,8 +33,52 @@ public class StudentController {
         ModelAndView mv = new ModelAndView();
         List<Student> slist = studentService.queryAllStudent();
         mv.addObject("slist",slist);
-        mv.setViewName("queryAllStudent");
-
-        return mv;
+        mv.setViewName("student/queryAllStudent");
+        return  mv;
     }
+
+    @RequestMapping("queryStudentBySno")
+    public ModelAndView queryStudentBySno(Integer sno){
+        ModelAndView mv   = new ModelAndView();
+        Student student  =  studentService.queryStudentBySno(sno);
+        mv.addObject("student",student);
+        mv.setViewName("student/queryStudentBySno");
+        return  mv;
+    }
+
+
+
+
+    @RequestMapping("modifyStudent")
+    public ModelAndView modifyStudent(Student student){
+        ModelAndView mv   = new ModelAndView();
+        boolean flag  =  studentService.modifyStudent(student);
+        mv.addObject("msg",flag);
+        mv.setViewName("redirect:queryStudentBySno?sno="+student.getSno());
+        return  mv;
+    }
+
+
+    @RequestMapping("deleteStudentBySno")
+    public ModelAndView deleteStudentBySno(Integer sno){
+        ModelAndView mv   = new ModelAndView();
+        boolean flag  =  studentService.deleteStudentBySno(sno);
+        mv.addObject("msg",flag);
+        mv.setViewName("redirect:queryAllStudent");
+        return  mv;
+    }
+
+
+    @RequestMapping("addStudent")
+    public ModelAndView addStudent(Student student){
+        ModelAndView mv   = new ModelAndView();
+        boolean flag  =  studentService.addStudent(student);
+        mv.addObject("msg",flag);
+        mv.setViewName("redirect:queryStudentBySno?sno="+student.getSno());
+        return  mv;
+    }
+
+
+
+
 }
