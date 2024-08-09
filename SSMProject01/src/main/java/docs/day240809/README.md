@@ -49,6 +49,18 @@
     - 将对象 转换成 json格式 （jackson包中的对象 ）
         - ![img_4.png](img_4.png)
 
+- 注解版
+    - applicationContext.xml 配置
+        - ![img_12.png](img_12.png)
+    - 通知类
+      - 方式1
+        - 定义切点
+        - 通知 要 指定切点
+        - ![img_13.png](img_13.png)
+      - 方式二
+        - 这种写法 可以更灵活的定义不同 切点下的通知 缺点是 每次都要写很长的表达式
+        - ![img_14.png](img_14.png)
+
 ## 报错处理
 
 - 关于 log4j本地文件 乱码解决方案
