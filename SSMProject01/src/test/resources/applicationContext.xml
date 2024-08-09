@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+    ">
+
+    <!-- 1开启注解： -->
+    <context:annotation-config></context:annotation-config>
+
+    <!-- 2 设置扫描的包 表示不扫描控制层，控制层由springMVC来扫描 -->
+    <context:component-scan base-package="com.gmgx">
+        <!-- 表示不扫描控制层（交由SpringMvc来扫描） -->
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+    <!-- 设置与数据库配置文件关联 引入配置文件 读取数据库有关的配置信息-->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties" />
+    </bean>
+
+    <!--3  配置数据源连接池有关的属性 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="url" value="${url}"></property>
+        <property name="username" value="${username}"></property>
+        <property name="password" value="${password}"></property>
+        <property name="driverClassName" value="${driver}"></property>
+        <!-- 初始化连接大小 -->
+        <property name="initialSize" value="${initialSize}"></property>
+        <!-- 连接池最大数量 -->
+        <property name="maxActive" value="${maxActive}"></property>
+        <!-- 连接池最大空闲 -->
+        <property name="maxIdle" value="${maxIdle}"></property>
+        <!-- 连接池最小空闲 -->
+        <property name="minIdle" value="${minIdle}"></property>
+        <!-- 获取连接最大等待时间 -->
+        <property name="maxWait" value="${maxWait}"></property>
+    </bean>
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+    <!--4  mybatis的配置  SqlSessionFactoryBean的配置和注入操作-->
+    <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- ① 配置和数据源有关 -->
+        <property name="dataSource" ref="dataSource"></property>
+
+        <property name="configLocation" value="classpath:SqlMapConfig.xml"></property>
+        <!-- ②其他的属性 和映射文件有关的配置信息 -->
+        <property name="mapperLocations" value="classpath:mapper/*.xml">
+        </property>
+    </bean>
+    <!-- 5 配置扫描器 MapperScannerConfigurer 需要用到mybatis-spring.jar-->
+    <!-- spring跟mybatis的整合，扫描所有的dao下的接口，然后创建接口的实现类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+        <property name="basePackage" value="com.gmgx.dao"></property>
+        <!-- 注意这里的是value 不是ref   -->
+        <property name="sqlSessionFactoryBeanName" value="sessionFactory"></property>
+    </bean>
+
+
+
+    <aop:config>
+
+
+        <!--
+            关于切点：尽量根据实际情况，在合理的范围内，稍微精准一点（ 防止 资源 浪费 ）
+            * *..*.*(..)   全部的  * 任意返回值 * 任意包（ 加 .. 多层） * 任意类 * 任意方法 (..) 任意参数 （慎用）
+
+
+
+
+        -->
+
+<!--        <aop:pointcut id="myPointcut03" expression="execution(* *..*.*(..))"/>-->
+        <!--
+                原则上：切点 尽量 精准一点（可以大，不要太大）
+               * com.gmgx.service.*.*(..)     任意返回的  com.gmgx.service 任意的类和方法 任意返回值
+        -->
+<!--        <aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.*.*(..))"/>-->
+
+        <!--
+             通过 * 配合，实现 显示 部分 统配 I*Service 以I开头 以Service 结尾的类（接口）
+
+        -->
+<!--        <aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.I*Service.*(..))"/>-->
+
+<!--
+   IStudentService 包底下的 任意 方法 任意返回值 任意参数
+-->
+
+<!--        <aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.*(..))"/>-->
+
+        <!--
+           通过 * 配合，实现 显示 部分 统配 query* 以query开头 任意方法（接口）
+
+        -->
+
+<!--        <aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.query*(..))"/>-->
+
+<!--
+        通过设置 参数类型，缩小 切点范围（精准节点范围）
+-->
+<!--
+  <aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.*(Integer))"/>
+-->
+
+<!--        <aop:pointcut id="myPointcut03" expression="execution(* com.gmgx.service.IStudentService.*(com.gmgx.entity.Student))"/>-->
+
+<!--        <aop:pointcut id="myPointcut03" expression="execution(boolean com.gmgx.service.IStudentService.*(..))"/>-->
+
+<!--        <aop:pointcut id="myPointcut03" expression="execution(com.gmgx.entity.Student com.gmgx.service.IStudentService.*(..))"/>-->
+
+        <aop:pointcut id="myPointcut03" expression="execution(java.util.List com.gmgx.service.IStudentService.*(..))"/>
+
+
+        <aop:aspect id="myAspect03" ref="myAop03">
+            <aop:around method="aroundMethod" pointcut-ref="myPointcut03"></aop:around>
+        </aop:aspect>
+
+
+
+    </aop:config>
+
+
+
+</beans>
