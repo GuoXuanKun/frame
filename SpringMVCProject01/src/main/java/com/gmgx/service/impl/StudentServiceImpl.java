@@ -23,16 +23,29 @@ public class StudentServiceImpl implements IStudentService {
         return studentDao.register(student);
     }
 
-    /**
-     * 学生 登录
-     * @param sno
-     * @param password
-     * @return
-     */
     @Override
-    public List<Student> login(int sno, String password) {
-        return studentDao.login(sno,password);
+    public boolean deleteStudent(Integer sno) {
+        return studentDao.deleteStudent(sno);
     }
 
+    @Override
+    public boolean modifyStudent(Student student) {
+        return studentDao.modifyStudent(student);
+    }
+
+    @Override
+    public Student queryStudentBySno(Integer sno) {
+        return studentDao.queryStudentBySno(sno) ;
+    }
+
+    @Override
+    public boolean modifyStudentPhoto(Integer sno, String photo) {
+        return studentDao.modifyStudentPhoto(sno,photo);
+    }
+
+    @Override
+    public boolean modifyStudentResume(Integer sno, String resume) {
+        return studentDao.modifyStudentResume(sno,resume);
+    }
 
 }

@@ -1,0 +1,9 @@
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="com.gmgx.entity"/><!-- 对应的别名  同 类名 一样，或者 类名首字母小写（推荐）  -->
+    </typeAliases>
+</configuration>
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+    ">
+
+    <!-- 1开启注解： -->
+    <context:annotation-config></context:annotation-config>
+
+    <!-- 2 设置扫描的包 表示不扫描控制层，控制层由springMVC来扫描 -->
+    <context:component-scan base-package="com.gmgx">
+        <!-- 表示不扫描控制层（交由SpringMvc来扫描） -->
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+    <!-- 设置与数据库配置文件关联 引入配置文件 读取数据库有关的配置信息-->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties" />
+    </bean>
+
+    <!--3  配置数据源连接池有关的属性 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="url" value="${url}"></property>
+        <property name="username" value="${username}"></property>
+        <property name="password" value="${password}"></property>
+        <property name="driverClassName" value="${driver}"></property>
+        <!-- 初始化连接大小 -->
+        <property name="initialSize" value="${initialSize}"></property>
+        <!-- 连接池最大数量 -->
+        <property name="maxActive" value="${maxActive}"></property>
+        <!-- 连接池最大空闲 -->
+        <property name="maxIdle" value="${maxIdle}"></property>
+        <!-- 连接池最小空闲 -->
+        <property name="minIdle" value="${minIdle}"></property>
+        <!-- 获取连接最大等待时间 -->
+        <property name="maxWait" value="${maxWait}"></property>
+    </bean>
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+    <!--4  mybatis的配置  SqlSessionFactoryBean的配置和注入操作-->
+    <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- ① 配置和数据源有关 -->
+        <property name="dataSource" ref="dataSource"></property>
+
+        <property name="configLocation" value="classpath:SqlMapConfig.xml"></property>
+        <!-- ②其他的属性 和映射文件有关的配置信息 -->
+        <property name="mapperLocations" value="classpath:mapper/*.xml">
+        </property>
+    </bean>
+    <!-- 5 配置扫描器 MapperScannerConfigurer 需要用到mybatis-spring.jar-->
+    <!-- spring跟mybatis的整合，扫描所有的dao下的接口，然后创建接口的实现类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+        <property name="basePackage" value="com.gmgx.dao"></property>
+        <!-- 注意这里的是value 不是ref   -->
+        <property name="sqlSessionFactoryBeanName" value="sessionFactory"></property>
+    </bean>
+
+
+
+    <!-- 第一个 * 任意的返回值 当然可以 指定具体的返回值
+    第二个* 及 *.. 代表任意的  包（*..多层包）
+    第三个* 任意的 类名
+    第四个*  任意的方法名
+    (..） 任意参数
+    execution(* *..*.*(..))  不建议这么写，范围太广了，容易出问题
+
+-->
+    <aop:config>
+        <!--        <aop:pointcut id="myPointcut01" expression="execution(* *..*.*(..))"/>-->
+        <aop:pointcut id="myPointcut01" expression="execution(* com.gmgx.service.TestAopService.*(..))"/>
+        <aop:aspect id="myAspect" ref="myAop01">
+            <!-- 前置通知 -->
+            <!-- <aop:before method="beforeMethod" pointcut-ref="myPointcut01"></aop:before>
+             &lt;!&ndash; 后置通知 &ndash;&gt;
+             <aop:after method="afterMethod" pointcut-ref="myPointcut01"></aop:after>
+             &lt;!&ndash; 返回通知 &ndash;&gt;
+             <aop:after-returning method="afterReturningMethod" pointcut-ref="myPointcut01"></aop:after-returning>
+             &lt;!&ndash; 异常通知 &ndash;&gt;
+             <aop:after-throwing method="afterThrowingMethod" pointcut-ref="myPointcut01"></aop:after-throwing>-->
+            <!-- 环绕通知 增强通知 -->
+            <aop:around method="aroundMethod" pointcut-ref="myPointcut01"></aop:around>
+        </aop:aspect>
+    </aop:config>
+
+
+
+</beans>
