@@ -53,13 +53,29 @@
     - applicationContext.xml 配置
         - ![img_12.png](img_12.png)
     - 通知类
-      - 方式1
-        - 定义切点
-        - 通知 要 指定切点
-        - ![img_13.png](img_13.png)
-      - 方式二
-        - 这种写法 可以更灵活的定义不同 切点下的通知 缺点是 每次都要写很长的表达式
-        - ![img_14.png](img_14.png)
+        - 方式1
+            - 定义切点
+            - 通知 要 指定切点
+            - ![img_13.png](img_13.png)
+        - 方式二
+            - 这种写法 可以更灵活的定义不同 切点下的通知 缺点是 每次都要写很长的表达式
+            - ![img_14.png](img_14.png)
+
+## 拦截器
+
+- 拦截在 前置控制器 和 Controller 类 之间
+- 更适合做前后端分离
+- 步骤
+    - springmvc-servlet 配置
+        - ![img_16.png](img_16.png)
+        - ![img_18.png](img_18.png)
+    - 写 拦截器 interceptor ( 实现接口 重写三个方法 )
+        - ![img_21.png](img_21.png)
+- 流程
+    - ![img_15.png](img_15.png)
+    - ![img_19.png](img_19.png)
+    - ![img_20.png](img_20.png)
+- 思考 : 拦截器 结合 AOP 来做吗?
 
 ## 报错处理
 
