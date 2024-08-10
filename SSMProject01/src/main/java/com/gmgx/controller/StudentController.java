@@ -22,7 +22,9 @@ public class StudentController {
     @RequestMapping("login")
     public ModelAndView login(){
         ModelAndView mv   = new ModelAndView();
+        System.out.println("假装已经登录了");
         mv.addObject("my","zhw");
+        mv.setViewName("redirect:queryAllStudent");
         return  mv;
     }
 
