@@ -71,10 +71,23 @@
         - ![img_18.png](img_18.png)
     - 写 拦截器 interceptor ( 实现接口 重写三个方法 )
         - ![img_21.png](img_21.png)
+        - preHandle 作用：实现 权限控制等等
+        - postHandle作用：“加料” 修改添加一些数据到requestsession等等
+        - afterCompletion作用：回收资源（eg.清除到session中的msg）不用每次都要手动清除
 - 流程
     - ![img_15.png](img_15.png)
     - ![img_19.png](img_19.png)
     - ![img_20.png](img_20.png)
+- 白名单
+    - 根据情况选用
+        - 如果使用了白名单。就没办法执行 以上三个方法
+    - 在 springmvc-servlet 配置
+        - ![img_22.png](img_22.png)
+        - 可以取代
+            - preHandle()里的放行
+                - ![img_23.png](img_23.png)
+
+
 - 思考 : 拦截器 结合 AOP 来做吗?
 
 ## 报错处理
