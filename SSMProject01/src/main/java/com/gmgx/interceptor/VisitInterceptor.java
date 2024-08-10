@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 /* 使用注解方式 配到 Spring容器中 */
 @Component
-public class VisitInterceptor  {  // 实现 处理拦截器 接口 实现三个方法
+public class VisitInterceptor implements HandlerInterceptor {  // 实现 处理拦截器 接口 实现三个方法
 
 
 }
