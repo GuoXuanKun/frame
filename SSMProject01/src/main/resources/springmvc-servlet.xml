@@ -44,9 +44,10 @@
         <mvc:interceptor>
             <!-- 拦截的路径 -->
             <mvc:mapping path="/**"/> <!-- /*  一层的  /** 多层的  student/queryAllStudent -->
+            <!--  <mvc:exclude-mapping path="/**/login"/> 白名单 路径中一login结尾的不加入 拦截  -->
             <!-- 关联拦截器方法 -->
-            <ref bean="visitInterceptor"></ref>
+            <!--            <ref bean="visitInterceptor"></ref>   注释太多了，我先用简单的2来看一下-->
+            <ref bean="visitInterceptor2"></ref>
         </mvc:interceptor>
     </mvc:interceptors>
-
 </beans>
