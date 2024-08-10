@@ -35,4 +35,18 @@
         <property name="defaultEncoding" value="utf-8" /><!-- 在web.xml里面有设置过编码，正常不需要再设置 -->
         <property name="maxUploadSize" value="2048000"></property><!-- 上传的文件最大大小 -->
     </bean>
+
+
+
+    <!-- 拦截器 ，可以配置多个 -->
+    <mvc:interceptors>
+        <!--  设置拦截器 -->
+        <mvc:interceptor>
+            <!-- 拦截的路径 -->
+            <mvc:mapping path="/**"/> <!-- /*  一层的  /** 多层的  student/queryAllStudent -->
+            <!-- 关联拦截器方法 -->
+            <ref bean="visitInterceptor"></ref>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>
