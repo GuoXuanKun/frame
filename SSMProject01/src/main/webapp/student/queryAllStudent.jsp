@@ -13,6 +13,7 @@
 </head>
 <body>
 ${msg}<br/>
+${info}<br/>
 <c:remove var="msg"></c:remove>
 
 <c:forEach items="${slist}" var="stu">
