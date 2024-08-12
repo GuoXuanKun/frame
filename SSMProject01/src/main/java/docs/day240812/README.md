@@ -41,12 +41,19 @@
     - 如果遇到异常 捕获了 就手动实现回滚
         - ![img_12.png](img_12.png)
 
-
 ## Swagger2
+
 - 依赖
-- 配置类
+- 配置类 (SwaggerConfig)
+  ![img_28.png](img_28.png)
 - 配置 springmvc-servlet.xml
+    - ![img_26.png](img_26.png)
+    - ![img_25.png](img_25.png)
+    - 访问路径名
+        - ![img_27.png](img_27.png)
 - 对应 Controller 加 注解
+    - ![img_29.png](img_29.png)
+    - ![img_30.png](img_30.png)
 
 ## 报错处理
 
