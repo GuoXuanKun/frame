@@ -43,7 +43,10 @@
 
 ## 报错处理
 
+- springmvc-servlet.xml 配置拦截器 报错 , 但是并不影响运行结果
+    - ![img_23.png](img_23.png)
+        - ![img_5.png](img_5.png)
+
 ## 截图寄存处
 
 - ![img.png](img.png)
-- ![img_5.png](img_5.png)
