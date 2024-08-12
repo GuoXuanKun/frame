@@ -38,18 +38,18 @@
 
 
 
-    <!-- 拦截器 ，可以配置多个 -->
-    <mvc:interceptors>
-        <!--  设置拦截器 -->
-        <mvc:interceptor>
-            <!-- 拦截的路径 -->
-            <mvc:mapping path="/**"/> <!-- /*  一层的  /** 多层的  student/queryAllStudent -->
-            <!--  <mvc:exclude-mapping path="/**/login"/> 白名单 路径中一login结尾的不加入 拦截  -->
-            <!-- 关联拦截器方法 -->
-            <!--            <ref bean="visitInterceptor"></ref>   注释太多了，我先用简单的2来看一下-->
-            <ref bean="visitInterceptor2"></ref>
-        </mvc:interceptor>
-    </mvc:interceptors>
+<!--    &lt;!&ndash; 拦截器 ，可以配置多个 &ndash;&gt;-->
+<!--    <mvc:interceptors>-->
+<!--        &lt;!&ndash;  设置拦截器 &ndash;&gt;-->
+<!--        <mvc:interceptor>-->
+<!--            &lt;!&ndash; 拦截的路径 &ndash;&gt;-->
+<!--            <mvc:mapping path="/**"/> &lt;!&ndash; /*  一层的  /** 多层的  student/queryAllStudent &ndash;&gt;-->
+<!--            &lt;!&ndash;  <mvc:exclude-mapping path="/**/login"/> 白名单 路径中一login结尾的不加入 拦截  &ndash;&gt;-->
+<!--            &lt;!&ndash; 关联拦截器方法 &ndash;&gt;-->
+<!--            &lt;!&ndash;            <ref bean="visitInterceptor"></ref>   注释太多了，我先用简单的2来看一下&ndash;&gt;-->
+<!--            <ref bean="visitInterceptor2"></ref>-->
+<!--        </mvc:interceptor>-->
+<!--    </mvc:interceptors>-->
 
 
     <!-- 自动扫描  配置Swagger2 显示页面的 相关配置 （html页面  js css 的等等资源）-->
