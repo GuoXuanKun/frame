@@ -12,6 +12,7 @@
     <!-- 1开启注解： -->
     <context:annotation-config></context:annotation-config>
 
+    <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
     <!-- 2 设置扫描的包 表示不扫描控制层，控制层由springMVC来扫描 -->
     <context:component-scan base-package="com.gmgx">
         <!-- 表示不扫描控制层（交由SpringMvc来扫描） -->
@@ -99,6 +100,27 @@
         </aop:aspect>
 
     </aop:config>
+
+
+
+    <!-- 事务管理器 （对象）-->
+    <!-- 配置一个bean对象：关于事务管理的
+            它有个属性：dataSource 数据源
+            相当于 是 将 数据库 mysql的事务管理 交给 我们 Spring配置事务管理来操作
+            相当于 是 将 数据库 原来需要自己 commit 提交 或 rollback 回滚的动作 交给 Spring的事务对象 来管理
+     -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--
+      事务的注解驱动：配置  值：bean 事务管理的bean对象，  事务管理
+      因为  事务管理器（对象） 的id值 也是 transactionManager，和默认值一样，所以就transaction-manager="transactionManager" 不用加。)-->
+    <!-- <tx:annotation-driven transaction-manager="transactionManager" />-->
+    <tx:annotation-driven />
+
+
 
 
 
