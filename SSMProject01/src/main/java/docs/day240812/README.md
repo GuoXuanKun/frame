@@ -41,6 +41,13 @@
     - 如果遇到异常 捕获了 就手动实现回滚
         - ![img_12.png](img_12.png)
 
+
+## Swagger2
+- 依赖
+- 配置类
+- 配置 springmvc-servlet.xml
+- 对应 Controller 加 注解
+
 ## 报错处理
 
 - springmvc-servlet.xml 配置拦截器 报错 , 但是并不影响运行结果
