@@ -54,7 +54,19 @@
 - 对应 Controller 加 注解
     - ![img_29.png](img_29.png)
     - ![img_30.png](img_30.png)
-
+- restFul方式
+    - 让地址栏更加简单
+    - @RestController 注解
+        - 是一个综合注解
+            - ![img_31.png](img_31.png)
+    - ![img_32.png](img_32.png)
+      - @GetMapping 查询
+      - @PostMapping 添加
+      - @DeleteMapping 删除
+      - @PutMapping 修改
+    - @PathVariable 配置 路径变量
+      - ![img_33.png](img_33.png)
+      - ![img_34.png](img_34.png)
 ## 报错处理
 
 - springmvc-servlet.xml 配置拦截器 报错 , 但是并不影响运行结果
