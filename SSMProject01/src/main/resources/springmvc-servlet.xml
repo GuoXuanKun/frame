@@ -12,7 +12,7 @@
 
 
     <!-- 1.开启spring的注解功能 存放控制器的目录（包） 此处springmvc配置文件中只扫描控制器，其他包交给spring管理 -->
-    <context:component-scan base-package="com.gmgx.controller"></context:component-scan>
+    <context:component-scan base-package="com.gmgx.controller,com.gmgx.interceptor"></context:component-scan>
 
     <!-- 2为@Controller分发请求 -->
     <mvc:annotation-driven />
