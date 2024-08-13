@@ -69,7 +69,26 @@
             - @PutMapping 修改
 
 - restFul方式
-    - 让地址栏更加简单
+    - ``````
+      （了解，在当前的项目中，可以找几个简单功能（模块）尝试一下，不一定要都用，至少了解如何使用）  后端程序员来说，如果要完全遵照RestFul ，就要 想着 将所有的请求都变成 增删查改。
+       另外，get post最常用 安全性 post最好 ，put delete 安全性不一定很高，有些地方不一定支持
+       通过  get   post   put   delete  四种请求方式来分工
+             查     增    改       删
+    - 优点: 让地址栏更加简单
+    - 可实现，路径一样，method的值不一样，有不一样效果：
+        - ![img_39.png](img_39.png)
+        - Swagger 页面中 , 暴露:
+            - ![img_40.png](img_40.png)
+            - ![img_41.png](img_41.png)
+        - Postman 软件上测试
+            - ![img_42.png](img_42.png)
+    - 注意 :
+        - 通过 restful风格传参：
+            - ![img_43.png](img_43.png)
+    - 解释：为什么要配置 paramType = "path"
+        - ![img_44.png](img_44.png)
+    - 多参数
+        - ![img_45.png](img_45.png)
     - @PathVariable 配置 路径变量
         - ![img_33.png](img_33.png)
         - ![img_34.png](img_34.png)
