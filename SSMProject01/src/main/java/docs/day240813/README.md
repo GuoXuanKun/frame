@@ -25,15 +25,15 @@
                 - ![img_2.png](img_2.png)
     - 方式二
         - vite 方式
-          - 步骤
-            - 安装 node.js
-            - ![img_3.png](img_3.png)
-            - ![img_4.png](img_4.png)
-            - ![img_8.png](img_8.png)
-            - ![img_9.png](img_9.png)
-          - 注意 :
-            - 如果 npm install 太慢 运行 `npm config set registry https://registry.npmmirror.com`
-            - 或者 # 安装cnpm ` npm install -g cnpm -registry=https://registry.npmmirror.com`
+            - 步骤
+                - 安装 node.js
+                - ![img_3.png](img_3.png)
+                - ![img_4.png](img_4.png)
+                - ![img_8.png](img_8.png)
+                - ![img_9.png](img_9.png)
+            - 注意 :
+                - 如果 npm install 太慢 运行 `npm config set registry https://registry.npmmirror.com`
+                    - 或者 # 安装cnpm ` npm install -g cnpm -registry=https://registry.npmmirror.com`
 
 - 插值表达式
 - 变量的声明
@@ -49,11 +49,11 @@
 - ![img_1.png](img_1.png)
 - Link:
     - https://nodejs.org/en/
-- 安装步骤 
-  - 下载安装包
-  - 右键安装
-  - 选择路径(在某盘新建一个文件夹)
-  - 无脑next
+- 安装步骤
+    - 下载安装包
+    - 右键安装
+    - 选择路径(在某盘新建一个文件夹)
+    - 无脑next
 
 ## 报错处理
 
