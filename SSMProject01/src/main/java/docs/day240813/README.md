@@ -31,6 +31,9 @@
             - ![img_4.png](img_4.png)
             - ![img_8.png](img_8.png)
             - ![img_9.png](img_9.png)
+          - 注意 :
+            - 如果 npm install 太慢 运行 `npm config set registry https://registry.npmmirror.com`
+            - 或者 # 安装cnpm ` npm install -g cnpm -registry=https://registry.npmmirror.com`
 
 - 插值表达式
 - 变量的声明
