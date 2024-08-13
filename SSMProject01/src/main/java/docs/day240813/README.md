@@ -35,6 +35,7 @@
                 - 如果 npm install 太慢 处理方式:
                     - 修改为淘宝镜像源 运行 `npm config set registry https://registry.npmmirror.com`
                     - 或者 # 安装cnpm ` npm install -g cnpm -registry=https://registry.npmmirror.com`
+
 - 在 VSCode 打开
     - ![img_10.png](img_10.png)
     - ![img_11.png](img_11.png)
@@ -43,6 +44,8 @@
     - ![img_14.png](img_14.png)
     - ![img_15.png](img_15.png)
 
+- 项目结构
+  - 
 - 插值表达式
 - 变量的声明
     - var
