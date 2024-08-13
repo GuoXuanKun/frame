@@ -46,14 +46,24 @@
 
 - 项目结构
     - ![img_16.png](img_16.png)
+    - main.js 
+        - ![img_17.png](img_17.png)
+    - App.vue
+      - ![img_18.png](img_18.png)
+      - ![img_20.png](img_20.png)
 - 插值表达式
 - 变量的声明
     - var
         - 弱类型的写法
+        - 普通变量,不会动态更新 ( 在 template 使用变量 , 不会因为变量值改变而更新 )
     - let
         - 精准声明
     - const
         - 最终什么 变量不可改
+
+- 动态变量
+  - ref 方法
+    - ![img_19.png](img_19.png)
 
 ## node.js
 
