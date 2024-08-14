@@ -59,14 +59,36 @@
     - 处理计算属性的设置（可选）
 
 - get set 写法
-  - ![img_6.png](img_6.png) 
-## 箭头函数写法
+    - ![img_6.png](img_6.png)
+
+### 箭头函数写法
+
 - `let calcCom2 = computed(()=> num1-num2 );`
-  - 只有返回值 , 单行代码 , 可以省略花括号
+    - 只有返回值 , 单行代码 , 可以省略花括号
 - ![img_7.png](img_7.png)
-- 普通函数写法 与 箭头函数写法 效果是一样的 
+- 普通函数写法 与 箭头函数写法 效果是一样的
 
+### 绑定事件
 
+- 插值表达式不能作用在属性上面的
+- v-bind
+    - ![img_8.png](img_8.png)
+    - 属性名与变量名一致 可以简写
+        - ![img_9.png](img_9.png)
+    - ![img_10.png](img_10.png)
+    - 绑定图片
+        - ![img_19.png](img_19.png)
+        - ![img_18.png](img_18.png)
+    - 绑定样式
+        - ![img_11.png](img_11.png)
+    - 绑定对象的方式
+        - ![img_13.png](img_13.png)
+        - ![img_14.png](img_14.png) 
+        - ![img_20.png](img_20.png)
+        - ![img_21.png](img_21.png)
+    - 绑定数组的方式
+        - ![img_16.png](img_16.png)
+        - ![img_15.png](img_15.png)
 
 ## 报错处理
 
