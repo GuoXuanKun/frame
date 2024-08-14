@@ -51,6 +51,8 @@
     - App.vue
       - ![img_18.png](img_18.png)
       - ![img_20.png](img_20.png)
+    - 页面生成过程
+      - ![img_21.png](img_21.png)
 - 插值表达式
 - 变量的声明
     - var
