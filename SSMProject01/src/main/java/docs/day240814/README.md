@@ -83,12 +83,19 @@
         - ![img_11.png](img_11.png)
     - 绑定对象的方式
         - ![img_13.png](img_13.png)
-        - ![img_14.png](img_14.png) 
+        - ![img_14.png](img_14.png)
         - ![img_20.png](img_20.png)
         - ![img_21.png](img_21.png)
     - 绑定数组的方式
         - ![img_16.png](img_16.png)
         - ![img_15.png](img_15.png)
+
+### 条件渲染
+
+- v-if
+    - ![img_22.png](img_22.png)
+- v-for
+    - ![img_23.png](img_23.png)
 
 ## 报错处理
 
