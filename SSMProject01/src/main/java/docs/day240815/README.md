@@ -30,6 +30,36 @@
             - ![img_6.png](img_6.png)
         - .passive
 
+### 表单输入绑定
+
+- v-model
+    - 双向绑定的
+    - ![img_7.png](img_7.png)
+    - `<textarea></textarea>`
+    - ![img_8.png](img_8.png)
+    - 复选框
+        - ![img_9.png](img_9.png)
+    - 单选框
+        - ![img_10.png](img_10.png)
+        - 指定 值
+            - ![img_18.png](img_18.png)
+    - 下拉框
+        - ![img_11.png](img_11.png)
+        - ![img_12.png](img_12.png)
+        - 多选
+            - ![img_13.png](img_13.png)
+        - 动态反显下拉框
+            - ![img_14.png](img_14.png)
+            - ![img_15.png](img_15.png)
+        - 值绑定
+            - ![img_16.png](img_16.png)
+        - 修饰符
+            - .lazy
+                - ![img_17.png](img_17.png)
+            - .number
+                - 如果你想让用户输入自动转换为数字，你可以在 v-model 后添加 .number 修饰符来管理输入
+                    - ![img_19.png](img_19.png)
+
 ## 报错处理
 
 ## 截图寄存
