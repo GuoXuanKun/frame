@@ -6,6 +6,8 @@
 
 - 配置 Swagger 单元测试 会报错
     - ![img.png](img.png)
+    - 方式二
+      - ![img_4.png](img_4.png)
 
 - 关于 日期的转换 （Date 转换成 json 格式 ）
     - 请求：@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
