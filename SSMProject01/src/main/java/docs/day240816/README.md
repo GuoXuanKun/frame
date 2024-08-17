@@ -83,6 +83,21 @@
                     - ![img_37.png](img_37.png)
                     - ![img_39.png](img_39.png)
 
+- 路由守护
+    - 全局守护
+        - ![img_43.png](img_43.png)
+        - 状态管理
+            - index.js
+                - ![img_46.png](img_46.png)
+        - 权限控制
+            - ![img_44.png](img_44.png)
+            - ![img_45.png](img_45.png)
+        - 懒加载
+            - index.js
+                - ![img_41.png](img_41.png)
+        - 销毁问题
+            - ![img_42.png](img_42.png)
+
 ## 报错处理
 
 - 配置 Swagger 单元测试 会报错
