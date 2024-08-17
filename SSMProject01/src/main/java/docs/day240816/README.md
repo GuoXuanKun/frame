@@ -46,15 +46,42 @@
 - 路由跳转
     - ![img_17.png](img_17.png)
     - router.push() 跳转
-        - ![img_20.png](img_20.png)  
+        - ![img_20.png](img_20.png)
     - 动态路径
-      - 使用绑定 
-        - ![img_21.png](img_21.png)
-        - ![img_22.png](img_22.png)
-        - ![img_23.png](img_23.png)
-        - ![img_24.png](img_24.png)
+        - 使用绑定
+            - ![img_21.png](img_21.png)
+            - ![img_22.png](img_22.png)
+            - ![img_23.png](img_23.png)
+            - ![img_24.png](img_24.png)
 
-
+- 路由传参
+    - ![img_29.png](img_29.png)
+    - query 查询
+        - 步骤
+            - ![img_30.png](img_30.png)
+            - ![img_31.png](img_31.png)
+        - 具体代码
+            - index.js
+                - ![img_34.png](img_34.png)
+            - ![img_35.png](img_35.png)
+            - 接收
+                - ![img_26.png](img_26.png)
+            - router.push() 跳转方式
+                - ![img_37.png](img_37.png)
+                - ![img_38.png](img_38.png)
+    - param
+        - 步骤
+            - ![img_32.png](img_32.png)
+            - ![img_33.png](img_33.png)
+            - 具体代码
+                - index.js
+                    - ![img_28.png](img_28.png)
+                - ![img_36.png](img_36.png)
+                - 接收
+                    - ![img_26.png](img_26.png)
+                - router.push() 跳转方式
+                    - ![img_37.png](img_37.png)
+                    - ![img_39.png](img_39.png)
 
 ## 报错处理
 
