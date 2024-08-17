@@ -19,18 +19,42 @@
 - 配置多个路由
     - router/index.js
         - ![img_9.png](img_9.png)
-        - 注意 : 
-          - history:createWebHistory()
-            - 使用 HTML5 History API 进行路由管理，URL 看起来更干净，没有哈希 (#) 符号。
-          - history:createWebHashHistory()
-            - 使用 URL 哈希部分进行路由管理，适合不支持 HTML5 History API 的浏览器。
-      - App.vue
-        - ![img_10.png](img_10.png)
+        - 注意 :
+            - history:createWebHistory()
+                - 使用 HTML5 History API 进行路由管理，URL 看起来更干净，没有哈希 (#) 符号。
+            - history:createWebHashHistory()
+                - 使用 URL 哈希部分进行路由管理，适合不支持 HTML5 History API 的浏览器。
+        - App.vue
+            - ![img_10.png](img_10.png)
 - 父子关系
     - router/index.js
         - ![img_11.png](img_11.png)
     - New.vue
         - ![img_12.png](img_12.png)
+
+- 路径
+    - 不加 / 是 相对路径
+    - 加 / 是根路径
+    - ![img_13.png](img_13.png)
+    - 关于二级路径
+        - ![img_14.png](img_14.png)
+        - ![img_15.png](img_15.png)
+
+- 重定向 (index.js)
+    - ![img_16.png](img_16.png)
+
+- 路由跳转
+    - ![img_17.png](img_17.png)
+    - router.push() 跳转
+        - ![img_20.png](img_20.png)  
+    - 动态路径
+      - 使用绑定 
+        - ![img_21.png](img_21.png)
+        - ![img_22.png](img_22.png)
+        - ![img_23.png](img_23.png)
+        - ![img_24.png](img_24.png)
+
+
 
 ## 报错处理
 
