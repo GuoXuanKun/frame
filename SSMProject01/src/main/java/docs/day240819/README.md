@@ -93,6 +93,14 @@
     - 文件夹含义 补充说明
         - ![img_30.png](img_30.png)
 
+### 拦截器
+- utils 文件夹下
+  - request.js 文件zhong
+    - 请求拦截器
+      - ![img_38.png](img_38.png)
+    - 响应拦截器
+      - ![img_39.png](img_39.png)
+
 ## 报错处理
 
 ## 截图寄存处
