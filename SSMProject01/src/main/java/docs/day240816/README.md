@@ -13,7 +13,9 @@
         - ![img_6.png](img_6.png)
 - main.js
     - ![img_7.png](img_7.png)
+    - ![img_48.png](img_48.png)
 - App.vue
+    - ![img_47.png](img_47.png)
     - ![img_8.png](img_8.png)
 
 - 配置多个路由
