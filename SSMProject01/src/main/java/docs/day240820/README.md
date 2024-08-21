@@ -2,7 +2,7 @@
 
 ## ElementPlus
 
-- 官网 : https://s-test.belle.cn/zh-CN/
+- 官网 : https://element-plus.org/zh-CN/
 
 ### 使用 ElementPlus
 
