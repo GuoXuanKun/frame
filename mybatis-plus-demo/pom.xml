@@ -63,6 +63,13 @@
             <version>1.18.34</version>
         </dependency>
 
+        <!--    knife4j:方便调试和维护数据接口    -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+            <version>4.5.0</version>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
