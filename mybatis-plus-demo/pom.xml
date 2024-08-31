@@ -56,6 +56,13 @@
             <version>2.3</version>
         </dependency>
 
+        <!--    lombok：简化java类书写和记录日志    -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.34</version>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
