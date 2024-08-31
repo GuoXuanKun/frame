@@ -56,6 +56,7 @@ public class UserController {
         return userService.updateById(user);
     }
 
+    @GetMapping("getPage")
     public Object getPage(int current, int size) {
         IPage<User> pageInfo = new Page<>(current, size);
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
