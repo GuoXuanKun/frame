@@ -49,5 +49,11 @@ public class UserController {
         return userService.save(user);
     }
 
+    @PutMapping
+    public Object update(@RequestBody User user) {
+        boolean update = userService.updateById(user);
+        return update;
+    }
+
 
 }
