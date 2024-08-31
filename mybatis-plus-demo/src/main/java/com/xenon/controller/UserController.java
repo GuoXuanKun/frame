@@ -30,5 +30,13 @@ public class UserController {
         return userService.list();
     }
 
+    @GetMapping("findByName")
+    public Object findByName(String name){
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(User::getName,name);
+        List<User> list = userService.list(wrapper);
+        return list;
+    }
+
 
 }
