@@ -1,6 +1,8 @@
 package com.xenon.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xenon.entity.User;
 import com.xenon.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +57,22 @@ public class UserController {
         return update;
     }
 
+    @GetMapping("page")
+    public Object getPage(int current, int size) {
+        /*
+        2. 页面规格
+        current 当前页码
+        size 每页显示条数
+         */
+        IPage<User> pageInfo = new Page<>(current, size);
+        /*
+        查询条件
+         */
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        wrapper.gt(User::getAge, 18);
+        // 1.
+        IPage<User> page = userService.page(pageInfo, wrapper);
+        return page;
+    }
 
 }
