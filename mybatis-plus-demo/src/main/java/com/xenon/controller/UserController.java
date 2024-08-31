@@ -38,5 +38,15 @@ public class UserController {
         return list;
     }
 
+    @GetMapping("findByEmail")
+    public Object findByEmail(String email){
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(User::getEmail,email);
+        User user = userService.getOne(wrapper);
+        return user;
+    }
+
+
+
 
 }
