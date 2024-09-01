@@ -3,11 +3,14 @@ package com.xenon.service.impl;
 import cn.hutool.crypto.digest.BCrypt;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.xenon.entity.Employee;
+import com.xenon.exceptions.BusinessException;
+import com.xenon.exceptions.enumeration.ResponseEnum;
 import com.xenon.mapper.EmployeeMapper;
 import com.xenon.service.EmployeeService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xenon.utils.JwtUtils;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,6 +21,7 @@ import org.springframework.stereotype.Service;
  * @author wuyunbin
  * @since 2024-09-01
  */
+@Slf4j
 @Service
 public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> implements EmployeeService {
 
@@ -35,7 +39,8 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
 
         //3.判断是否查询到用户
         if(employeeInDb == null){
-            throw new RuntimeException("用户名错误");
+            log.info("用户名:{}不存在",employee.getUsername());
+            throw new BusinessException(ResponseEnum.INVALID_ACCOUNT);
         }
 
         //4.比较密码
