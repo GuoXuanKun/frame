@@ -18,7 +18,7 @@ import java.util.Scanner;
  */
 public class MyBatisPlusGenerator {
 
-    private static String URL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
+    private static String URL = "jdbc:mysql://localhost:3306/blue?useSSL=false";
     private static String USERNAME = "root";
     private static String PASSWORD = "root";
 
