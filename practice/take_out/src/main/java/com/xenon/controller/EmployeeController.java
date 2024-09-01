@@ -1,12 +1,13 @@
 package com.xenon.controller;
 
+import com.xenon.common.Result;
 import com.xenon.entity.Employee;
 import com.xenon.service.EmployeeService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -24,10 +25,17 @@ public class EmployeeController {
     @Resource
     private EmployeeService employeeService;
 
-    public String login(@RequestBody Employee employee){
+    @PostMapping("login")
+    public Result<String> login(@RequestBody Employee employee){
         log.info("employee:{}",employee);
         String token=  employeeService.login(employee);
-        return token;
+        return Result.success(token);
+    }
+
+    @GetMapping("list")
+    public Result<List<Employee>> list(){
+        List<Employee> list = employeeService.list();
+        return Result.success(list);
     }
 
 }
