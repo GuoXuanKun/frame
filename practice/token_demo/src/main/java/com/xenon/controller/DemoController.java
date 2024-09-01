@@ -1,0 +1,23 @@
+package com.xenon.controller;
+
+import com.xenon.utils.JwtUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping
+@Slf4j
+public class DemoController {
+    @Autowired
+    private JwtUtils jwtUtils;
+
+    @PostMapping("login")
+    public void login(){
+        String token = jwtUtils.createJwt("1", null, null, "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+        log.info("token:{}",token);
+    }
+}
