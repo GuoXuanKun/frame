@@ -17,6 +17,7 @@ import java.util.List;
  * @author wuyunbin
  * @since 2024-09-01
  */
+@CrossOrigin
 @Slf4j
 @RestController
 @RequestMapping("/employee")
