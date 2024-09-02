@@ -5,10 +5,11 @@ import com.xenon.exceptions.enumeration.ResponseEnum;
 import lombok.Data;
 
 @Data
-public class BusinessException extends RuntimeException{
+public class BusinessException extends RuntimeException {
     private ResponseEnum response;
 
-    public BusinessException(ResponseEnum response){
+    public BusinessException(ResponseEnum response) {
+        super(response.getMessage());
         this.response = response;
     }
 
